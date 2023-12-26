@@ -6,6 +6,7 @@
 
 .ColumnlayoutContainer {
   display: flex;
+  flex-grow: 1;
   flex-direction: column; /* 전체 레이아웃을 세로 방향으로 설정 */
 }
 
@@ -20,6 +21,7 @@
   align-items: center;
   width: 100%;
   max-width: 880px;
+  margin: 0 auto;
   min-height: 100dvh;
   background-color: blanchedalmond;
 }
