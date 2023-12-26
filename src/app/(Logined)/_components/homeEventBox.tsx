@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./homeEventBox.module.css";
 
@@ -27,12 +28,19 @@ const imageStyle = {
 };
 
 const EventBox: React.FC<EventBoxProps> = ({ event }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [boxHeight, setBoxHeight] = useState("0px"); // initial height
+  const toggleExpansion = () => {
+    setBoxHeight(isExpanded ? "0px" : "200px"); // adjust height based on isExpanded
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <div className={styles.eventContainer}>
+    <div className={styles.eventContainer} onClick={toggleExpansion}>
       <div className={styles.upperEvent}>
         <Image
           style={imageStyle}
-          src="/image/세츠나2.png"
+          src={"/image/세츠나2.png"}
           width={84}
           height={84}
           alt={event.name}
@@ -53,7 +61,6 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
           {/* 아니메 바 */}
           <div className={styles.eventProgressBar}>
             <div className={styles.progressBarStart}>0</div>
-
             <div
               className={styles.currentProgress}
               style={{ width: `${(event.nowJoin / event.maximumJoin) * 100}%` }}
@@ -78,6 +85,22 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
         <s>{event.originPrice}</s>
         <p>{event.salePrice}&#8361;</p>
         <p>{event.pickType}</p>
+      </div>
+      <div className={styles.animebox} style={{ height: boxHeight }}>
+        <div className={styles.foodChoice}>메뉴선택</div>
+        <div className={styles.optionalbox}>
+          <p>매장</p>
+          <div>시간/옵션</div>
+          <div>수량</div>
+        </div>
+        <div className={styles.optionalbox}>
+          <p>포장</p>
+          <div className={styles.timeoptionbox}>시간/옵션</div>
+          <div>수량</div>
+        </div>
+        <div className={styles.paybox}>
+          <p>결제하기</p>
+        </div>
       </div>
     </div>
   );
