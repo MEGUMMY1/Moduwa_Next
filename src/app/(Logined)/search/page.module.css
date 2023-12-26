@@ -1,0 +1,40 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 400px;
+
+    margin-bottom: 10px;
+    align-items: center;
+
+    padding: 5px;
+}
+
+.SearchBar {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ThumbNailArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 400px;
+
+    margin: 5px 0;
+}
+
+.Input {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+}
+
+.SearchButton {
+    width: 30px;
+    height: 30px;
+}
