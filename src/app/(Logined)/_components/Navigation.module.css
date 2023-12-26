@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 /* 링크들을 담는 박스 */

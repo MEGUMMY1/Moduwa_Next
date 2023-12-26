@@ -17,14 +17,14 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link href="/news" className={styles.linkItem}>
+          <Link href="/search" className={styles.linkItem}>
             <HiChatAlt2 size={28} />
             <p className={styles.linkText}>모두뉴스</p>
           </Link>
         </li>
         <li>
           <Link href="/talk" className={styles.linkItem}>
-            <PiNewspaperClippingFill size={28} />
+            <HiChatAlt2 size={28} />
             <p className={styles.linkText}>모두톡</p>
           </Link>
         </li>

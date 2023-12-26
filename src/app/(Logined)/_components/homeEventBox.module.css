@@ -1,0 +1,150 @@
+.eventContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: 5px 0;
+  max-width: 400px;
+  font-size: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.upperEvent,
+.downBox {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  align-items: center;
+}
+.downBox {
+  border-top: 1px solid rgba(20, 20, 20, 0.1);
+  background-color: #fafafa;
+  padding: 3px 5px;
+  border-radius: 0px;
+  font-size: 0.7em;
+}
+.downBox p {
+  margin: 4px;
+  font-size: 1em;
+}
+.downBox s {
+  color: #777;
+  font-size: 1em;
+  margin: 0 1px 0 8px;
+}
+.imagebox {
+  padding: 10px;
+}
+
+.upperColumnBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.storeInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px;
+}
+.storeInfo p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+  font-weight: 600;
+  font-size: 1em;
+  margin: 0 10px 0 0px;
+}
+.eventInfo p {
+  white-space: nowrap;
+  overflow: hidden;
+  /* text-overflow: ellipsis; */
+  max-width: 180px;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+.storeInfo p:last-child {
+  /*Location*/
+  font-size: 0.7em;
+  color: #555;
+  font-weight: 400;
+}
+.eventInfo p:first-child {
+  margin-right: 10px; /*event date*/
+}
+
+.eventInfo {
+  display: flex;
+  flex-direction: row;
+}
+.condition {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  padding-bottom: 10px;
+}
+/* 쓰레기같은 SE를 위한 레이아웃 지정 */
+@media (max-width: 350px) {
+  .eventContainer {
+    font-size: 18px;
+  }
+  .storeInfo p {
+    max-width: 140px;
+    font-size: 20;
+  }
+}
+
+.eventProgressBar {
+  position: relative;
+  width: 90%;
+  height: 10px;
+  background-color: #b0c4b1;
+  border-radius: 10px;
+}
+
+.eventProgressBar span {
+  font-size: 0.6em;
+}
+
+.currentProgress {
+  position: relative;
+  height: 100%;
+  background-color: #edafb8;
+  border-radius: 10px 0 0 10px;
+}
+
+.minimumJoinMarker {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-left: 1.5px solid #d35e70;
+}
+.minimumText {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  font-size: 0.7em;
+}
+
+.progressBarStart,
+.progressBarEnd {
+  position: absolute;
+  font-size: 0.6em;
+  top: -10px; /* Adjust as needed */
+  z-index: 10;
+}
+.progressBarEnd {
+  right: 0;
+}
+.nowJoinText {
+  position: absolute;
+  right: -5px;
+  font-size: 0.6em;
+  top: -10px; /* Adjust as needed */
+}
