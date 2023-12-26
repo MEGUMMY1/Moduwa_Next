@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "chatRoomImage": "./하사웨이.png",
+        "chatRoomName": "향설 모두미",
+        "chatRoomIntro": "향설 생활관에서 함께 이야기 나눠요",
+        "tags": ["#향설_생활관", "#커뮤니티", "#취미공유"],
+        "isPrivate": false,
+        "capacity": 30,
+        "currentMembers": 15
+    },
+    {
+        "id": 2,
+        "chatRoomImage": "./하사웨이.png",
+        "chatRoomName": "책 읽는 사람들",
+        "chatRoomIntro": "다양한 책을 읽고 토론하는 곳",
+        "tags": ["#독서클럽", "#책토론", "#문학사랑"],
+        "isPrivate": true,
+        "capacity": 40,
+        "currentMembers": 20
+    },
+    {
+        "id": 3,
+        "chatRoomImage": "./하사웨이.png",
+        "chatRoomName": "주말 축구 클럽",
+        "chatRoomIntro": "주말마다 축구하는 즐거움",
+        "tags": ["#축구", "#스포츠", "#주말활동"],
+        "isPrivate": false,
+        "capacity": 22,
+        "currentMembers": 22
+    }
+]
