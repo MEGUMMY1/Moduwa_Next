@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "profilePicture": "./김밥.jpeg",
+        "storeName": "얌샘 김밥",
+        "distance": "500m",
+        "postedImage": "./김밥.jpeg",
+        "likes": 70,
+        "datePosted": "2023-12-20",
+        "content": "오늘의 특별 메뉴!",
+        "followersCount": 300,
+        "isFollowing": true
+      },
+      {
+        "id": 2,
+        "profilePicture": "./김밥.jpeg",
+        "storeName": "행복한 돈까스",
+        "distance": "1km",
+        "postedImage": "./김밥.jpeg",
+        "likes": 40,
+        "datePosted": "2023-12-19",
+        "content": "신메뉴 출시",
+        "followersCount": 150,
+        "isFollowing": false
+      },
+      {
+        "id": 3,
+        "profilePicture": "./김밥.jpeg",
+        "storeName": "꼴두바우",
+        "distance": "200m",
+        "postedImage": "./김밥.jpeg",
+        "likes": 120,
+        "datePosted": "2023-12-25",
+        "content": "메리 크리스마스!",
+        "followersCount": 200,
+        "isFollowing": true
+      },
+      {
+        "id": 4,
+        "profilePicture": "./김밥.jpeg",
+        "storeName": "계경",
+        "distance": "4km",
+        "postedImage": "./김밥.jpeg",
+        "likes": 30,
+        "datePosted": "2023-12-16",
+        "content": "신메뉴 출시",
+        "followersCount": 10,
+        "isFollowing": false
+      }
+]
