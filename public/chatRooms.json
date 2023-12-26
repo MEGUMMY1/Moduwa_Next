@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "이노베이드",
+      "info": "이노베이드는 기억될 것입니다...",
+      "current": 4,
+      "capacity": 4
+    },
+    {
+      "id": 2,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "향설 모두미",
+      "info": "향설생활관 모두해요",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 3,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 3",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 4,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 4",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 5,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 5",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 6,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 6",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 7,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 7",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 8,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 8",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 9,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 9",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    },
+    {
+      "id": 10,
+      "image": "https://i.pinimg.com/236x/3f/f9/4f/3ff94ffbd2764a7f78c7d066e182ce48.jpg",
+      "name": "채팅방 10",
+      "info": "소개말",
+      "current": 15,
+      "capacity": 30
+    }
+  ]
+  
