@@ -1,0 +1,17 @@
+.chat-container{
+    display: flex;
+}
+
+.chat-header{
+    width: 100vw;
+    height: 75px;
+    background-color: #4e4e4e;
+}
+
+.chat-body{
+
+}
+
+.chat-send-container{
+
+}

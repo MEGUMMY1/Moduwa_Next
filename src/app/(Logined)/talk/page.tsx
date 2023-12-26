@@ -1,11 +1,29 @@
 import React from "react";
+import chatRoomsData from "../../../../public/chatRooms.json";  
+import "./_components/talk.css";
+import Link from 'next/link';
 
 const Page = () => {
   return (
     <>
-      {/* 여기에 페이지 고유의 내용을 추가합니다. */}
-      <h1>모두톡 제목</h1>
-      <p>페이지 내용...</p>
+    <div className="talklist-container">
+      <div className="talkroom-div">
+        {chatRoomsData.map((room) => (
+          <Link href={`/talk/${room.id}`}>
+            <div key={room.id} className="talkroom">
+              <img src={room.image} className="talkroom-img" width="60px" height="60px"></img>
+              <div className="talkroom-data-a">
+                <div className="talkroom-data-b">
+                  <p className="roomname">{room.name}</p>
+                  <p className="roomcapa">{room.current}/{room.capacity}</p>
+                </div>
+                <p className="roominfo">{room.info}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </div>
     </>
   );
 };
