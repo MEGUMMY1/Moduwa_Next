@@ -11,7 +11,7 @@ interface Menu {
 }
 
 interface Event {
-  eventid: string;
+  eventid: number;
   image: string;
   name: string;
   location: number;
