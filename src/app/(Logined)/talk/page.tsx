@@ -3,7 +3,7 @@ import chatRoomsData from "../../../../public/chatRooms.json";
 import styles from "./_components/talk.module.css";
 import Link from 'next/link';
 
-const Page = () => {
+export default async function Page() {
   return (
     <>
     <div className={styles.talklist_container}>
@@ -27,5 +27,3 @@ const Page = () => {
     </>
   );
 };
-
-export default Page;

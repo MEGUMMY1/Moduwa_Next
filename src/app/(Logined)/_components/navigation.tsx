@@ -2,9 +2,9 @@
 import Link from "next/link";
 import React from "react";
 import styles from "./Navigation.module.css";
-import { HiHome, HiChatAlt2 } from "react-icons/hi";
-import { PiNewspaperClippingFill } from "react-icons/pi";
-import { FaCircle } from "react-icons/fa";
+import { HiOutlineViewList, HiOutlineChatAlt } from "react-icons/hi";
+import { RiCompassDiscoverLine } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
 
 const Navigation = () => {
   return (
@@ -12,25 +12,25 @@ const Navigation = () => {
       <ul>
         <li>
           <Link href="/" className={styles.linkItem}>
-            <HiHome size={28} />
-            <p className={styles.linkText}>모두홈</p>
+            <HiOutlineViewList size={35} />
+            <p className={styles.linkText}>모두와</p>
           </Link>
         </li>
         <li>
           <Link href="/search" className={styles.linkItem}>
-            <HiChatAlt2 size={28} />
-            <p className={styles.linkText}>모두뉴스</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/talk" className={styles.linkItem}>
-            <HiChatAlt2 size={28} />
+            <RiCompassDiscoverLine size={35} />
             <p className={styles.linkText}>모두톡</p>
           </Link>
         </li>
         <li>
+          <Link href="/talk" className={styles.linkItem}>
+            <HiOutlineChatAlt size={35} />
+            <p className={styles.linkText}>채팅</p>
+          </Link>
+        </li>
+        <li>
           <Link href="/profile" className={styles.linkItem}>
-            <FaCircle size={28} />
+            <CgProfile size={35} />
             <p className={styles.linkText}>프로필</p>
           </Link>
         </li>

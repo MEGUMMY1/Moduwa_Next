@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./_components/chat.module.css";
 
-const Page = () => {
+
+export default async function Page() {
   return (
     <>
       <div className={styles.chat_container}>
@@ -17,4 +18,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export const runtime = "edge"
