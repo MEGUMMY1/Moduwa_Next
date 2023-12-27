@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import ThumNail from "./_components/thumbnail";
-import styles from "./page.module.css";
+import styles from "./_components/page.module.css";
 import chatRoomData from '../../../../public/searchdata.json';
 import { FiSearch } from 'react-icons/fi';
 
