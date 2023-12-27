@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./_components/chat.module.css";
 
-
 export default async function Page() {
   return (
     <>
