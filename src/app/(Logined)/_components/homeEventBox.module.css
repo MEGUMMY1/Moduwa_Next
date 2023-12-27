@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 97%;
-  margin: 5px 0;
+  width: 93%;
+  margin: 10px 0;
   max-width: 400px;
   font-size: 20px;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 12px;
 }
 
 .upperEvent,
@@ -177,15 +177,16 @@
   border-radius: 3px;
   border: 0.5px solid #aaa;
   padding: 0 5px;
+  font-size: 0.8em;
 }
 .paybox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 85%;
+  width: 90%;
   margin: 0px 0;
-  height: 28px;
+  height: 24px;
   color: rgba(245, 245, 245, 1);
   background-color: rgba(0, 123, 255, 1);
   border-radius: 5px;
@@ -195,12 +196,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: 600;
   color: rgba(105, 105, 105, 1);
   height: 90%;
   width: 40px;
   border-radius: 3px;
-
   background-color: #b0c4b1;
+}
+
+.foodChoice {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.foodChoice p:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  width: 160px;
+  height: 30px;
+  border-radius: 55px;
+  border: 1px solid rgb(40, 40, 40);
+  background-color: #fff;
+}
+
+.foodmount {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.8em;
+}
+.foodmount p {
+  font-size: 1.1em;
+}
+
+.checkboxLarge {
+  width: 18px; /* 너비 조절 */
+  height: 18px; /* 높이 조절 */
+  cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
 }
