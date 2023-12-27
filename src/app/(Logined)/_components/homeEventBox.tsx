@@ -2,8 +2,16 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import styles from "./homeEventBox.module.css";
+import Link from "next/link";
+
+interface Menu {
+  name: string;
+  originPrice: number;
+  salePrice: number;
+}
 
 interface Event {
+  eventid: string;
   image: string;
   name: string;
   location: number;
@@ -11,9 +19,7 @@ interface Event {
   eventStartTime: string;
   eventEndTime: string;
   joinDeadlineTime: string;
-  menu: string[];
-  originPrice: number;
-  salePrice: number;
+  menu: Menu[];
   minimumJoin: number;
   nowJoin: number;
   maximumJoin: number;
@@ -33,6 +39,20 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
   const toggleExpansion = () => {
     setBoxHeight(isExpanded ? "0px" : "200px"); // adjust height based on isExpanded
     setIsExpanded(!isExpanded);
+  };
+  // 체크박스 상태 관리
+  const [storeChecked, setStoreChecked] = useState(false);
+  const [packageChecked, setPackageChecked] = useState(false);
+
+  // 체크박스 상태 변경 핸들러
+  const handleStoreCheckboxChange = () => {
+    setStoreChecked(true);
+    setPackageChecked(false);
+  };
+
+  const handlePackageCheckboxChange = () => {
+    setStoreChecked(false);
+    setPackageChecked(true);
   };
 
   return (
@@ -81,25 +101,52 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
         </div>
       </div>
       <div className={styles.downBox}>
-        <p>{event.menu} 외 2종</p>
-        <s>{event.originPrice}</s>
-        <p>{event.salePrice}&#8361;</p>
-        <p>{event.pickType}</p>
+        <p>
+          {event.menu[0].name}{" "}
+          {event.menu.length > 1 && ` 외 ${event.menu.length - 1}종`}-{" "}
+          <s>{event.menu[0].originPrice}</s>
+          {event.menu[0].salePrice}&#8361;
+        </p>
+        <p>{event.pickType.join(", ")}</p>
       </div>
-      <div className={styles.animebox} style={{ height: boxHeight }}>
-        <div className={styles.foodChoice}>메뉴선택</div>
+      <div
+        className={styles.animebox}
+        style={{ height: boxHeight }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className={styles.foodChoice}>
+          <Link href={`/home/${event.eventid}`}>{event.eventid}결제</Link>
+          <p>메뉴 담기</p>
+          <div className={styles.foodmount}>
+            <div>돈까스 김밥 외 3개</div>
+            <p>16800&#8361;</p>
+          </div>
+        </div>
         <div className={styles.optionalbox}>
           <p>매장</p>
-          <div>시간/옵션</div>
-          <div>수량</div>
+          <div>15:00 ~ 18:00</div>
+          <div>
+            <input
+              type="checkbox"
+              className={styles.checkboxLarge}
+              checked={storeChecked}
+              onChange={handleStoreCheckboxChange}
+            />
+            선택
+          </div>
         </div>
         <div className={styles.optionalbox}>
           <p>포장</p>
-          <div className={styles.timeoptionbox}>시간/옵션</div>
-          <div>수량</div>
-        </div>
-        <div className={styles.paybox}>
-          <p>결제하기</p>
+          <div className={styles.timeoptionbox}>15:00 / 17:00</div>
+          <div>
+            <input
+              type="checkbox"
+              className={styles.checkboxLarge}
+              checked={packageChecked}
+              onChange={handlePackageCheckboxChange}
+            />
+            선택
+          </div>
         </div>
       </div>
     </div>

@@ -1,23 +1,23 @@
 import React from "react";
 import chatRoomsData from "../../../../public/chatRooms.json";  
-import "./_components/talk.css";
+import styles from "./_components/talk.module.css";
 import Link from 'next/link';
 
-const Page = () => {
+export default async function Page() {
   return (
     <>
-    <div className="talklist-container">
-      <div className="talkroom-div">
+    <div className={styles.talklist_container}>
+      <div className={styles.talkroom_div}>
         {chatRoomsData.map((room) => (
           <Link href={`/talk/${room.id}`}>
-            <div key={room.id} className="talkroom">
-              <img src={room.image} className="talkroom-img" width="60px" height="60px"></img>
-              <div className="talkroom-data-a">
-                <div className="talkroom-data-b">
-                  <p className="roomname">{room.name}</p>
-                  <p className="roomcapa">{room.current}/{room.capacity}</p>
+            <div key={room.id} className={styles.talkroom}>
+              <img src={room.image} className={styles.talkroom_img} width="60px" height="60px"></img>
+              <div className={styles.talkroom_data_a}>
+                <div className={styles.talkroom_data_b}>
+                  <p className={styles.roomname}>{room.name}</p>
+                  <p className={styles.roomcapa}>{room.current}/{room.capacity}</p>
                 </div>
-                <p className="roominfo">{room.info}</p>
+                <p className={styles.roominfo}>{room.info}</p>
               </div>
             </div>
           </Link>
@@ -27,5 +27,3 @@ const Page = () => {
     </>
   );
 };
-
-export default Page;

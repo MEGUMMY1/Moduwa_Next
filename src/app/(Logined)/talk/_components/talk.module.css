@@ -1,0 +1,68 @@
+.talklist_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 5px 0;
+    max-width: 400px;
+    font-size: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+.talkroom_div{
+    width: 100%;
+}
+
+.talkroom{
+    width: 100%;
+    height: 95px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px 0 15px 20px;
+    display: flex;
+}
+
+.talkroom:focus, .talkroom:active{
+    background-color: #edafb8;
+}
+
+.talkroom_img{
+    border-radius: 25%;
+    border: 1px solid #ddd;
+}
+
+.talkroom_data_a{
+    margin-left: 15px;
+    width: 100%;
+}
+
+.talkroom_data_b{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.roomcapa{
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.roominfo{
+    font-size: 16px;
+    margin-top: 5px;
+    white-space: nowrap;       
+    overflow: hidden;        
+    text-overflow: ellipsis; 
+    max-width: 240px;
+}
+
+.roomname{
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;       
+    overflow: hidden;        
+    text-overflow: ellipsis; 
+    max-width: 200px;
+}

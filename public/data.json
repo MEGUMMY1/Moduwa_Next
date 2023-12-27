@@ -1,5 +1,6 @@
 [
   {
+    "eventid": 1,
     "image": "./image/세츠나2.png",
     "name": "얌샘김밥",
     "location": 16,
@@ -8,15 +9,31 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240619",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 7144,
-    "salePrice": 6659,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 7,
     "nowJoin": 7,
     "maximumJoin": 16,
     "pickType": ["매장", "포장"]
   },
+
   {
+    "eventid": 2,
     "image": "./image/세츠나2.png",
     "name": "행복한돈까스",
     "location": 116,
@@ -25,15 +42,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20241006",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 7643,
-    "salePrice": 9054,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 12,
     "nowJoin": 7,
     "maximumJoin": 15,
     "pickType": ["포장", "매장"]
   },
   {
+    "eventid": 3,
     "image": "./image/세츠나2.png",
     "name": "최고당돈까스존나긴이름을 만들어버리면어케됨",
     "location": 273,
@@ -42,15 +74,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20241010",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 9479,
-    "salePrice": 8802,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 6,
     "nowJoin": 4,
     "maximumJoin": 18,
     "pickType": ["포장", "배달", "매장"]
   },
   {
+    "eventid": 4,
     "image": "./image/세츠나2.png",
     "name": "단보라멘",
     "location": 97,
@@ -59,15 +106,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240802",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 11217,
-    "salePrice": 9564,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 20,
     "nowJoin": 10,
     "maximumJoin": 20,
     "pickType": ["배달"]
   },
   {
+    "eventid": 5,
     "image": "./image/세츠나2.png",
     "name": "카페 에이루트",
     "location": 68,
@@ -76,15 +138,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240728",
     "joinDeadlineTime": "16:00",
-    "menu": ["커피", "아이스티"],
-    "originPrice": 11411,
-    "salePrice": 8214,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 6,
     "nowJoin": 11,
     "maximumJoin": 11,
     "pickType": ["포장", "매장"]
   },
   {
+    "eventid": 6,
     "image": "./image/세츠나2.png",
     "name": "지짐이",
     "location": 198,
@@ -93,15 +170,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240610",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 9565,
-    "salePrice": 8328,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 16,
     "nowJoin": 15,
     "maximumJoin": 20,
     "pickType": ["배달"]
   },
   {
+    "eventid": 7,
     "image": "./image/세츠나2.png",
     "name": "버거운버거",
     "location": 197,
@@ -110,15 +202,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20231229",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 11457,
-    "salePrice": 9466,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 20,
     "nowJoin": 12,
     "maximumJoin": 20,
     "pickType": ["매장"]
   },
   {
+    "eventid": 8,
     "image": "./image/세츠나2.png",
     "name": "맘스터치",
     "location": 120,
@@ -127,15 +234,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240319",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 7976,
-    "salePrice": 5560,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 6,
     "nowJoin": 7,
     "maximumJoin": 19,
     "pickType": ["포장"]
   },
   {
+    "eventid": 9,
     "image": "./image/세츠나2.png",
     "name": "빽다방",
     "location": 225,
@@ -144,15 +266,30 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240902",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 9302,
-    "salePrice": 9499,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 14,
     "nowJoin": 13,
     "maximumJoin": 19,
     "pickType": ["배달"]
   },
   {
+    "eventid": 10,
     "image": "./image/세츠나2.png",
     "name": "계경",
     "location": 210,
@@ -161,9 +298,23 @@
     "eventEndTime": "18:00",
     "joinDeadlineDate": "20240727",
     "joinDeadlineTime": "16:00",
-    "menu": ["밥", "김치"],
-    "originPrice": 10232,
-    "salePrice": 9552,
+    "menu": [
+      {
+        "name": "참치김밥",
+        "originPrice": 5500,
+        "salePrice": 4500
+      },
+      {
+        "name": "돈까스김밥",
+        "originPrice": 6000,
+        "salePrice": 5500
+      },
+      {
+        "name": "소세지김밥",
+        "originPrice": 5500,
+        "salePrice": 5000
+      }
+    ],
     "minimumJoin": 10,
     "nowJoin": 2,
     "maximumJoin": 20,
