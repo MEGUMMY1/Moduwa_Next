@@ -17,7 +17,7 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
     <>
       <div className={styles.profile_item}>
         <img src={profile.image} alt={profile.name} />
-        <p className={styles.profile_name}>{profile.name}</p>      
+        <p className={styles.profile_name}>{profile.name}</p>
       </div>
       <div className={styles.profile_box}>
         <div className={styles.profile_box_div}>
