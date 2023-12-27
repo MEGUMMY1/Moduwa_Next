@@ -1,15 +1,16 @@
 import React from "react";
-import "./_components/chat.css";
+import styles from "./_components/chat.module.css";
 
-const Page = () => {
+
+export default async function Page() {
   return (
     <>
-      <div className="chat-container">
-        <div className="chat-header">
+      <div className={styles.chat_container}>
+        <div className={styles.chat_header}>
         </div>
-        <div className="chat-body">
+        <div className={styles.chat_body}>
         </div>
-        <div className="chat-send-container">
+        <div className={styles.chat_send_container}>
 
         </div>
       </div>
@@ -17,4 +18,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export const runtime = "edge"
