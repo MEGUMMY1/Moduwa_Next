@@ -22,10 +22,6 @@
   width: 100%;
   max-width: 880px;
   margin: 0 auto;
-  min-height: 100dvh;
-<<<<<<< HEAD
-  background-color: #FFF;
-=======
+  min-height: 100%;
   background-color: #fff;
->>>>>>> 901742c957d457e3a11b53580cf0e1815ef042c4
 }

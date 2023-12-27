@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <>
       {eventData.map((event) => (
-        <EventBox key={event.name} event={event} />
+        <EventBox key={event.eventid} event={event} />
       ))}
     </>
   );
