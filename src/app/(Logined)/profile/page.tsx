@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./_components/profile.module.css";
 import profileData from "../../../../public/profile.json";
+import SignInButton from "@/app/(UnLogined)/loginEntrypage/_component/SignInButton";
 
 interface Profile {
   id: number;
@@ -16,8 +17,10 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
   return (
     <>
       <div className={styles.profile_item}>
-        <img src={profile.image} alt={profile.name} />
-        <p className={styles.profile_name}>{profile.name}</p>      
+        <img src={profile.image} alt={profile.name} className={styles.image} />
+
+        {/* <p className={styles.profile_name}>{profile.name}</p> */}
+        <SignInButton />
       </div>
       <div className={styles.profile_box}>
         <div className={styles.profile_box_div}>
