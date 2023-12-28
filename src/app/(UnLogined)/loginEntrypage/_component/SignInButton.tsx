@@ -10,22 +10,27 @@ function SignInButton() {
 
   if (session && session.user) {
     return (
-      <button
-        className={`${styles.signInButton} ${styles.logOutButton}`}
-        onClick={() => signOut()}
-      >
-        {session.user.name}님 Log Out
-      </button>
+      <div className={styles.LoginBox}>
+        <h1 className={styles.profile_name}> {session.user.name}</h1>
+        <button
+          className={`${styles.signInButton} ${styles.logOutButton}`}
+          onClick={() => signOut()}
+        >
+          로그아웃
+        </button>
+      </div>
     );
   }
 
   return (
-    <button
-      className={`${styles.signInButton} ${styles.logInButton}`}
-      onClick={() => signIn()}
-    >
-      LogIn
-    </button>
+    <div className={styles.LoginBox}>
+      <button
+        className={`${styles.signInButton} ${styles.logInButton}`}
+        onClick={() => signIn()}
+      >
+        로그인하기
+      </button>
+    </div>
   );
 }
 

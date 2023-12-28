@@ -64,9 +64,13 @@ const handler = NextAuth({
     },
   },
 
-  // pages: {
-  //   signIn: "/",
-  // },
+  pages: {
+    signIn: "/loginEntrypage/loginPage",
+    //signOut: "",
+    //error: "", //error code passed in query string as ?error=
+    //verifyRequest:"" //used for check email message
+    //newUser: "" //new user will be directed here on first sign in
+  },
 });
 
 export { handler as GET, handler as POST };

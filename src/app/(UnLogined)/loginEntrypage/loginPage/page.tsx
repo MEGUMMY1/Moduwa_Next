@@ -6,21 +6,29 @@ import { getProviders, signIn } from "next-auth/react";
 import styles from "../_component/loginPageStyle.module.css";
 
 function Login() {
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-
-  const handleSubmit = async () => {
-    // console.log(emailRef.current);
-    // console.log(passwordRef.current);
-    const result = await signIn("credentials", {
-      username: emailRef.current,
-      password: passwordRef.current,
-      redirect: true,
-      callbackUrl: "/",
-    });
-  };
+  //주석처리가 된 부분은 이메일 로그인을 위한 것임
+  // const emailRef = useRef(null);
+  // const passwordRef = useRef(null);
+  // const handleSubmit = async () => {
+  //   // console.log(emailRef.current);
+  //   // console.log(passwordRef.current);
+  //   const result = await signIn("credentials", {
+  //     username: emailRef.current,
+  //     password: passwordRef.current,
+  //     redirect: true,
+  //     callbackUrl: "/",
+  //   });
+  // };
 
   // 추가된 부분
+  const [providers, setProviders] = useState(null);
+  useEffect(() => {
+    (async () => {
+      const res: any = await getProviders();
+      console.log(res);
+      setProviders(res);
+    })();
+  }, []);
   const handleKakao = async () => {
     const result = await signIn("kakao", {
       redirect: true,
@@ -31,8 +39,11 @@ function Login() {
 
   return (
     <main className={styles.loginContainer}>
-      <h1 className={styles.loginTitle}>Login</h1>
-      <div>
+      <h1 className={styles.loginTitle}>
+        MODUWA
+        <p>로그인</p>
+      </h1>
+      {/* <div>
         <div className={styles.inputGroup}>
           <label htmlFor="email">Email</label>
 
@@ -67,12 +78,13 @@ function Login() {
         <div className={styles.loginButton}>
           <button onClick={handleSubmit}>Log In</button>
         </div>
-      </div>
+      </div> */}
       <div className={styles.kakaoButton}>
         <button
-          onClick={() => signIn("kakao", { redirect: true, callbackUrl: "/" })}
+          onClick={handleKakao}
+          //onClick={() => signIn("kakao", { redirect: true, callbackUrl: "/" })}
         >
-          kakao login
+          카카오톡으로 로그인
         </button>
       </div>
     </main>
