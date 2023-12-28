@@ -1,0 +1,113 @@
+[
+    {
+        "id": 1,
+        "sender": "메구미",
+        "senderImg": "https://cdn-icons-png.flaticon.com/128/4646/4646084.png",
+        "sendDate": "2023.12.27",
+        "sendTime": "15:00",
+        "eventid": 1,
+        "image": "https://i.pinimg.com/236x/ce/a7/ec/cea7ec9e367b7fc6b292857b85a24ce8.jpg",
+        "name": "얌샘김밥",
+        "location": 16,
+        "eventDate": "2024.06.21",
+        "eventStartTime": "15:00",
+        "eventEndTime": "18:00",
+        "joinDeadlineDate": "2024.06.19",
+        "joinDeadlineTime": "16:00",
+        "menu": [
+        {
+            "name": "참치김밥",
+            "originPrice": 5500,
+            "salePrice": 4500
+        },
+        {
+            "name": "돈까스김밥",
+            "originPrice": 6000,
+            "salePrice": 5500
+        },
+        {
+            "name": "소세지김밥",
+            "originPrice": 5500,
+            "salePrice": 5000
+        }
+        ],
+        "minimumJoin": 7,
+        "nowJoin": 7,
+        "maximumJoin": 16,
+        "pickType": ["매장", "포장"]
+    },
+    {
+        "id": 2,
+        "sender": "해신황보고",
+        "senderImg": "https://cdn-icons-png.flaticon.com/128/4646/4646084.png",
+        "sendDate": "2023.12.30",
+        "sendTime": "15:00",
+        "eventid": 3,
+        "image": "https://i.pinimg.com/236x/ce/a7/ec/cea7ec9e367b7fc6b292857b85a24ce8.jpg",
+        "name": "최고당돈까스존나긴이름을만들어버리면어케됨",
+        "location": 273,
+        "eventDate": "2024.10.12",
+        "eventStartTime": "08:00",
+        "eventEndTime": "18:00",
+        "joinDeadlineDate": "2024.10.10",
+        "joinDeadlineTime": "16:00",
+        "menu": [
+        {
+            "name": "참치김밥",
+            "originPrice": 5500,
+            "salePrice": 4500
+        },
+        {
+            "name": "돈까스김밥",
+            "originPrice": 6000,
+            "salePrice": 5500
+        },
+        {
+            "name": "소세지김밥",
+            "originPrice": 5500,
+            "salePrice": 5000
+        }
+        ],
+        "minimumJoin": 6,
+        "nowJoin": 4,
+        "maximumJoin": 18,
+        "pickType": ["포장", "배달", "매장"]
+    },
+    {
+        "id": 3,
+        "sender": "사키쿤",
+        "senderImg": "https://cdn-icons-png.flaticon.com/128/4646/4646084.png",
+        "sendDate": "2023.12.30",
+        "sendTime": "15:00",
+        "eventid": 5,
+        "image": "https://i.pinimg.com/236x/ce/a7/ec/cea7ec9e367b7fc6b292857b85a24ce8.jpg",
+        "name": "최고당돈까스존나긴이름을만들어버리면어케됨",
+        "location": 273,
+        "eventDate": "2024.10.12",
+        "eventStartTime": "08:00",
+        "eventEndTime": "18:00",
+        "joinDeadlineDate": "2024.10.10",
+        "joinDeadlineTime": "16:00",
+        "menu": [
+        {
+            "name": "참치김밥",
+            "originPrice": 5500,
+            "salePrice": 4500
+        },
+        {
+            "name": "돈까스김밥",
+            "originPrice": 6000,
+            "salePrice": 5500
+        },
+        {
+            "name": "소세지김밥",
+            "originPrice": 5500,
+            "salePrice": 5000
+        }
+        ],
+        "minimumJoin": 6,
+        "nowJoin": 4,
+        "maximumJoin": 18,
+        "pickType": ["포장", "배달", "매장"]
+    }
+]
