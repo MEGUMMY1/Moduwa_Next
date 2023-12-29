@@ -9,16 +9,14 @@
   border-radius: 3px;
 }
 
-
-.profile_container{
-    height: 450px;
-    width: 100%;
-    background-color: #EDAFB8;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-
+.profile_container {
+  height: 450px;
+  width: 100%;
+  background-color: #edafb8;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .profile_item {
