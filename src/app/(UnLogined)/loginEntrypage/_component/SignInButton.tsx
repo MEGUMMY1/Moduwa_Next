@@ -11,7 +11,7 @@ function SignInButton() {
   if (session && session.user) {
     return (
       <div className={styles.LoginBox}>
-        <h1 className={styles.profile_name}> {session.user.name}</h1>
+        <h1 className={styles.profile_name}>{session.user.name}</h1>
         <button
           className={`${styles.signInButton} ${styles.logOutButton}`}
           onClick={() => signOut()}
