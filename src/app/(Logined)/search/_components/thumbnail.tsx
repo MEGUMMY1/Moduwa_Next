@@ -19,7 +19,8 @@ interface Room {
     gender: string,
     keyfood: string[],
     minAge: number,
-    maxAge: number
+    maxAge: number,
+    question: string,
 }
 
 interface RoomProps {
@@ -145,7 +146,9 @@ const ThumNail: React.FC<RoomProps> = ({ room }) => {
 
                 {(room.capacity > room.currentMembers) && (!room.isPrivate) && (isAge) ? (
                     <div className={styles.joinButton}>
-                        <Link href="/search/joinTab">참가 하기</Link>
+                        <Link href="/search/joinQuestion">
+                            참가 하기
+                        </Link>
                     </div>
                 ) : (
                     <div className={styles.joinButton}>

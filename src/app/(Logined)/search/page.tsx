@@ -1,5 +1,8 @@
+//app/search/page
+
 "use client";
 import React, { useState } from "react";
+import Link from 'next/link'
 import ThumNail from "./_components/thumbnail";
 import styles from "./_components/page.module.css";
 import chatRoomData from '../../../../public/searchdata.json';
@@ -28,13 +31,13 @@ const Page = () => {
           />
         </div>
 
-        <button className="button" onClick={handleSearch}>
+        <button onClick={handleSearch}>
           <FiSearch className={styles.SearchButton}/>
         </button>
 
-        <button className="my-custom-button">
+        <Link href="/search/createTab">
           <BiCommentAdd className={styles.addChatButton}/>
-        </button>
+        </Link>
       </div>
 
       <div className={styles.ThumbNailArea}>

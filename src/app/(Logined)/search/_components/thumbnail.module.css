@@ -13,6 +13,18 @@
     background-color: #ffffff;
 }
 
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    margin-bottom: 10px;
+    align-items: center;
+
+    padding: 5px;
+    background-color: #ffffff;
+}
+
 .Container {
     display: flex;
     flex-direction: row;
