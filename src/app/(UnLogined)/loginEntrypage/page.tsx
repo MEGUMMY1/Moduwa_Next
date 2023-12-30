@@ -1,6 +1,6 @@
 //app/page.tsx
 
-import SignInButton from "./_component/SignInButton";
+import SignInButton from "../../(Logined)/profile/_components/SignInButton";
 import styles from "./_component/SignupStyle.module.css"; // CSS 모듈 임포트
 
 export default function UnloginedHome() {

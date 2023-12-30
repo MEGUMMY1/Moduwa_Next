@@ -1,10 +1,11 @@
-'use client' 
+"use client";
 import React from "react";
 import styles from "./_components/chat.module.css";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import { IoArrowBackOutline } from "react-icons/io5";
-import chatData from "../../../../../public/chat.json";  
-import chatRoomsData from "../../../../../public/chatRooms.json";  
+import chatData from "../../../../../public/chat.json";
+import chatRoomsData from "../../../../../public/chatRooms.json";
+import Image from "next/image";
 
 interface Menu {
   name: string;
@@ -34,30 +35,44 @@ interface Chat {
   pickType: string[];
 }
 
-
 const ChatComponent: React.FC<{ chat: Chat }> = ({ chat }) => {
   return (
     <>
       <div className={styles.sender_div}>
         <p className={styles.chat_sender}>{chat.sender}</p>
-        <img src={chat.senderImg} className={styles.sender_img}/>
+        <Image
+          src={"/image/세츠나2.png"}
+          width={40} // width 속성 설정
+          height={40} // height 속성 설정
+          alt="Sender Image"
+          className={styles.sender_img}
+          layout="fixed" // 고정된 레이아웃을 사용
+        />
       </div>
       <div className={styles.chat_item}>
         <div className={styles.chat_item_a}>
-          <img src={chat.image} className={styles.chat_img}/>
+          <img src={chat.image} className={styles.chat_img} />
           <div className={styles.chat_info_div}>
             <p className={styles.chat_name}>{chat.name}</p>
-            <p className={styles.chat_info}>{chat.eventDate} | {chat.eventStartTime} ~ {chat.eventEndTime}</p>
+            <p className={styles.chat_info}>
+              {chat.eventDate} | {chat.eventStartTime} ~ {chat.eventEndTime}
+            </p>
             <p className={styles.chat_info}>{chat.menu[0].name}</p>
             <div className={styles.chat_info_price}>
-              <p className={styles.chat_info_line}>{chat.menu[0].originPrice}원</p>
+              <p className={styles.chat_info_line}>
+                {chat.menu[0].originPrice}원
+              </p>
               <p className={styles.chat_info}> → {chat.menu[0].salePrice}원</p>
-            </div>          
+            </div>
           </div>
         </div>
         <div className={styles.chat_item_b}>
-          <button type="button" className={styles.chat_btn_a}>{chat.pickType}</button>
-          <button type="button" className={styles.chat_btn_b}>참가하기</button>
+          <button type="button" className={styles.chat_btn_a}>
+            {chat.pickType}
+          </button>
+          <button type="button" className={styles.chat_btn_b}>
+            참가하기
+          </button>
         </div>
       </div>
     </>
@@ -72,12 +87,14 @@ const Page: React.FC = () => {
     <>
       <div className={styles.chat_container}>
         <div className={styles.chat_header}>
-          <button onClick={() => router.back()} className={styles.back_button}><IoArrowBackOutline size={'40px'} color={'white'} /></button>
+          <button onClick={() => router.back()} className={styles.back_button}>
+            <IoArrowBackOutline size={"40px"} color={"white"} />
+          </button>
           <p className={styles.chat_room_name}>{firstRoom.name}</p>
           <p className={styles.chat_room_curr}>({firstRoom.current})</p>
         </div>
         <div className={styles.chat_body}>
-          {chatData.map(chat => (
+          {chatData.map((chat) => (
             <ChatComponent key={chat.id} chat={chat} />
           ))}
         </div>
