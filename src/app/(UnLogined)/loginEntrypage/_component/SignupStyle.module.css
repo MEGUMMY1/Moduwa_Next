@@ -1,0 +1,14 @@
+/* app/Page.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.title {
+  font-size: 2.5rem; /* 4xl */
+  font-weight: 600; /* font-semibold */
+}

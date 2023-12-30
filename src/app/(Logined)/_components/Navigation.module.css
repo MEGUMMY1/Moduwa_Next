@@ -121,4 +121,8 @@
     font-size: 12px;
     margin-top: 5px;
   }
+  .linkItem:active {
+    transform: scale(1.05); /* 마우스 오버 시 크기 증가 */
+    transition: transform 0.2s; /* 부드러운 변환 효과 */
+  }
 }

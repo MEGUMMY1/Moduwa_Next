@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 440px;
+  font-size: 20px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.profile_container {
+  height: 450px;
+  width: 100%;
+  background-color: #edafb8;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.profile_item {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.image {
+  padding: 20px 0;
+}
+
+.profile_name {
+  font-weight: bold;
+  font-size: 2em;
+  color: #ffffff;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile_box {
+  background-color: #ffffff;
+  width: 85%;
+  height: 7rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile_box_div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile_box_txt {
+  font-size: 1em;
+  margin-bottom: 0.3rem;
+  color: #3f3f3f;
+}
+
+.profile_box_value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #3f3f3f;
+}
+
+/* 쓰레기같은 SE를 위한 레이아웃 지정 */
+@media (max-width: 350px) {
+  .container {
+    font-size: 14px;
+  }
+  .profile_item {
+    margin-top: 0;
+  }
+  .profile_box {
+    height: 5rem;
+    padding: 0.5rem;
+  }
+}

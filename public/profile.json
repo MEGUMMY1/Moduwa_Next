@@ -1,0 +1,11 @@
+{
+    "profile": {
+        "id": 1,
+        "image": "https://cdn-icons-png.flaticon.com/128/4646/4646084.png",
+        "name": "메구미",
+        "age": 25,
+        "phone": "010-1234-4126",
+        "level": "Bronze",
+        "count": 5
+    }
+}
