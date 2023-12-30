@@ -23,27 +23,27 @@ const imageStyle = {
 
 const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
   const { data: session } = useSession();
-  if (!session) {
-    return <div>Loading...</div>; // 세션 정보가 없을 때 로딩 표시
-  }
 
   return (
     <>
       <div className={styles.profile_item}>
-        <Image
-          src={session.user.image || "/image/세츠나2.png"} // 기본 이미지 설정}
-          alt={profile.name}
-          width={140}
-          height={140}
-          style={{
-            objectFit: "contain",
-            borderRadius: "50%",
-            border: "1.5px solid #aaa",
-          }}
-          //layout="intrinsic" // 또는 'fixed', 'intrinsic' 등에 따라 설정
-        />
-
-        {/* <p className={styles.profile_name}>{profile.name}</p> */}
+        {session ? (
+          <Image
+            src={session.user.image || "/image/세츠나2.png"} // 기본 이미지 설정}
+            alt={profile.name}
+            width={140}
+            height={140}
+            style={{
+              objectFit: "contain",
+              borderRadius: "50%",
+              border: "1.5px solid #aaa",
+            }}
+            //layout="intrinsic" // 또는 'fixed', 'intrinsic' 등에 따라 설정
+          />
+        ) : (
+          <div>Loading...</div>
+        )}
+        {/* <p className={styles.profile_name}>{profile.name}</p>  */}
         <SignInButton />
       </div>
       <div className={styles.profile_box}>
