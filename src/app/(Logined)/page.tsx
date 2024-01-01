@@ -1,7 +1,10 @@
-// 예시: src/app/[라우트명]/page.tsx
+// 예시: src/app/(Logined)/page.tsx
+
 import React from "react";
 import EventBox from "./_components/homeEventBox";
 import eventData from "../../../public/data.json";
+import prisma from "../lib/prisma";
+import { sql } from "@vercel/postgres";
 
 const Page = () => {
   return (
