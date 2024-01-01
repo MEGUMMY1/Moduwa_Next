@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 440px;
+    font-size: 20px;
+    background-color: #ffffff;
+    border-radius: 3px;
+  }
+  
+  .profile_container {
+    height: 450px;
+    width: 100%;
+    background-color: #B0C4B1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .profile_item {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .profile_name {
+    font-weight: bold;
+    font-size: 2em;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .account_change_div{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    margin-left: 1rem;
+  }
+  
+  .account_change_btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ffffff;
+    color: #3f3f3f;
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+  
+  /* 쓰레기같은 SE를 위한 레이아웃 지정 */
+  @media (max-width: 350px) {
+    .container {
+      font-size: 14px;
+    }
+    .profile_item {
+      margin-top: 0;
+    }
+    .profile_box {
+      height: 5rem;
+      padding: 0.5rem;
+    }
+  }
+  

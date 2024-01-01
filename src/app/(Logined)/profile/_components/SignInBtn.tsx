@@ -1,11 +1,11 @@
-//app/components/SignInButton.tsx
+//app/components/SignInBtn.tsx
 
 "use client";
 import { signIn, signOut, useSession } from "next-auth/react";
 import React from "react";
-import styles from "./SignInButtonStyle.module.css"; // CSS 모듈 임포트
+import styles from "./SignInBtn.module.css"; // CSS 모듈 임포트
 
-function SignInButton() {
+function SignInBtn() {
   const { data: session } = useSession();
 
   if (session && session.user) {
@@ -46,4 +46,4 @@ function SignInButton() {
   );
 }
 
-export default SignInButton;
+export default SignInBtn;

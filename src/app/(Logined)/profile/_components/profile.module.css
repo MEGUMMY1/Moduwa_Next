@@ -17,12 +17,11 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  justify-content: center;
 }
 
 .profile_item {
   width: 100%;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
 
 .profile_name {
@@ -33,6 +32,23 @@
   margin-bottom: 1.5rem;
 }
 
+.account_change_div{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  margin-left: 1rem;
+}
+
+.account_change_btn{
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  color: #3f3f3f;
+  font-size: 0.8em;
+  font-weight: 500;
+}
 
 /* 쓰레기같은 SE를 위한 레이아웃 지정 */
 @media (max-width: 350px) {

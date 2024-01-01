@@ -6,21 +6,27 @@
 }
 
 .logInButton {
-  padding: 12px 48px; /* px-12 py-4와 동일 */
-  border-radius: 15px; /* rounded-xl과 동일 */
-  background-color: #fff; /* bg-yellow-300과 동일 */
+  width: 100px;
+  height: 40px;
+  background-color: #fff; /* bg-red-300과 동일 */
   border: none;
+  border-radius: 10px;
   color: #3f3f3f;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 200px;
 }
 
 .logOutButton {
-  padding: 4px 12px;
+  width: 100px;
+  height: 40px;
   background-color: #fff; /* bg-red-300과 동일 */
   border: none;
-  color: #000;
-  font-size: 14px;
-  font-weight: 200;
+  border-radius: 10px;
+  color: #3f3f3f;
+  font-weight: bold;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
