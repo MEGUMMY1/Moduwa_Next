@@ -1,22 +1,22 @@
-.chat_container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 5px 0;
-    max-width: 400px;
-    font-size: 20px;
-    background-color: #ffffff;
-    border-radius: 3px;
+.chat_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 5px 0;
+  max-width: 400px;
+  font-size: 20px;
+  background-color: #ffffff;
+  border-radius: 3px;
 }
 
-.chat_header{
-    width: 100%;
-    height: 60px;
-    background-color: #4a5759;
-    display: flex;
-    align-items: center;     
-    padding-left: 0.5rem;
+.chat_header {
+  width: 100%;
+  height: 60px;
+  background-color: #4a5759;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5rem;
 }
 
 .chat_room_name{
@@ -25,118 +25,114 @@
     margin-left: 10px;
 }
 
-.chat_room_curr{
-    color: #ffffff;
-    font-size: 1em;
-    margin-left: 5px;
+.chat_room_curr {
+  color: #ffffff;
+  font-size: 1em;
+  margin-left: 5px;
 }
 
-.back_button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    background: none; 
-    border: none; 
+.back_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
-.chat_body{
-
+.sender_div {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 1rem;
 }
 
-.sender_div{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-right: 10px;
-    margin-top: 1rem;
+.chat_sender {
+  text-align: right;
+  color: #3f3f3f;
+  font-size: 0.9em;
+  margin-right: 5px;
+  font-weight: bold;
 }
 
-.chat_sender{
-    text-align: right;
-    color: #3f3f3f;
-    font-size: 0.9em;
-    margin-right: 5px;
-    font-weight: bold;
+.sender_img {
+  width: 40px;
+  height: 40px;
 }
 
-.sender_img{
-    width: 40px;
-    height: 40px;
+.chat_item {
+  width: 20rem;
+  height: 11.5rem;
+  background-color: #edafb8;
+  border-radius: 20px 20px 0 20px;
+  margin: 5px 0.1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.chat_item{
-    width: 20rem;
-    height: 11.5rem;
-    background-color: #EDAFB8;
-    border-radius: 20px 20px 0 20px;
-    margin: 5px 0.1rem 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.chat_item_a {
+  display: flex;
 }
 
-.chat_item_a{
-    display: flex;
+.chat_item_b {
+  display: flex;
+  margin-top: 1rem;
 }
 
-.chat_item_b{
-    display: flex;
-    margin-top: 1rem;
+.chat_name {
+  font-size: 1em;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+  margin-bottom: 5px;
 }
 
-.chat_name{
-    font-size: 1em;
-    font-weight: bold;
-    white-space: nowrap;       
-    overflow: hidden;        
-    text-overflow: ellipsis; 
-    max-width: 200px;
-    margin-bottom: 5px;
+.chat_info_div {
+  margin-left: 0.6rem;
+  color: #3f3f3f;
 }
 
-.chat_info_div{
-    margin-left: 0.6rem;
-    color: #3f3f3f;
+.chat_info {
+  font-size: 1rem;
 }
 
-.chat_info{
-    font-size: 1rem;
+.chat_info_line {
+  font-size: 1rem;
+  text-decoration: line-through;
 }
 
-.chat_info_line{
-    font-size: 1rem;
-    text-decoration: line-through;
+.chat_info_price {
+  display: flex;
 }
 
-.chat_info_price{
-    display: flex;
+.chat_img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20%;
 }
 
-.chat_img{
-    width: 80px;
-    height: 80px;
-    border-radius: 20%;
+.chat_btn_a {
+  width: 120px;
+  height: 40px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  color: #3f3f3f;
 }
 
-.chat_btn_a{
-    width: 120px;
-    height: 40px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    margin-right: 10px;
-    font-size: 1rem;
-    color: #3f3f3f;
-}
-
-.chat_btn_b{
-    width: 150px;
-    height: 40px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    color: #3f3f3f;
+.chat_btn_b {
+  width: 150px;
+  height: 40px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #3f3f3f;
 }

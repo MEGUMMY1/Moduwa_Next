@@ -56,8 +56,8 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
   };
 
   return (
-    <div className={styles.eventContainer} onClick={toggleExpansion}>
-      <div className={styles.upperEvent}>
+    <article className={styles.eventContainer} onClick={toggleExpansion}>
+      <header className={styles.upperEvent}>
         <Image
           style={imageStyle}
           src={"/image/세츠나2.png"}
@@ -68,7 +68,7 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
         <div className={styles.upperColumnBox}>
           <div className={styles.storeInfo}>
             <p>{event.name}</p>
-            <p>{event.location}m</p>
+            <span>{event.location}m</span>
           </div>
           <div className={styles.eventInfo}>
             <p>{event.eventDate}</p>
@@ -99,8 +99,8 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
             {event.minimumJoin}개부터 진행
           </span>
         </div>
-      </div>
-      <div className={styles.downBox}>
+      </header>
+      <main className={styles.downBox}>
         <p>
           {event.menu[0].name}{" "}
           {event.menu.length > 1 && ` 외 ${event.menu.length - 1}종`}-{" "}
@@ -108,8 +108,8 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
           {event.menu[0].salePrice}&#8361;
         </p>
         <p>{event.pickType.join(", ")}</p>
-      </div>
-      <div
+      </main>
+      <footer
         className={styles.animebox}
         style={{ height: boxHeight }}
         onClick={(e) => e.stopPropagation()}
@@ -148,8 +148,8 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
             선택
           </div>
         </div>
-      </div>
-    </div>
+      </footer>
+    </article>
   );
 };
 

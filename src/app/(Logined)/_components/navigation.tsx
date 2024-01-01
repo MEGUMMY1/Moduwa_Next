@@ -1,43 +1,89 @@
 // (Logined)/_components/Navigation.tsx
-'use client' 
-import React, { useState } from "react";
+"use client";
+import React from "react";
+import Link from "next/link"; // Link import
+import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.css";
-import { HiOutlineViewList, HiOutlineChatAlt } from "react-icons/hi";
-import { RiCompassDiscoverLine } from "react-icons/ri";
-import { CgProfile } from "react-icons/cg";
-import { useRouter } from 'next/navigation'
-
+//Icon Imports
+import { GoHome, GoHomeFill } from "react-icons/go";
+import { IoSearchCircle, IoSearchCircleOutline } from "react-icons/io5";
+import { RiChat3Fill, RiChat3Line } from "react-icons/ri";
+import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
 const Navigation = () => {
-  const router = useRouter();
-  // 각 아이콘의 클릭 상태를 저장하는 상태
-  const [activeIcon, setActiveIcon] = useState('');
-
+  const segment = usePathname();
+  console.log("Current segment:", segment);
+  // 현재 경로와 아이콘 경로를 비교하여 색상 결정
   return (
     <nav className={styles.navigationContainer}>
       <ul>
-      <li onClick={() => { router.push('/'); setActiveIcon('home'); }}>
-          <div className={styles.linkItem}>
-          <HiOutlineViewList size={35} color={activeIcon === 'home' ? 'black' : 'gray'} />
-            <p className={styles.linkText}>모두와</p>
-          </div>
+        <li>
+          <Link href="/">
+            <div className={styles.linkItem}>
+              {segment === "/" ? (
+                <>
+                  <GoHomeFill size={32} />
+                  <p className={styles.linkText}>모두와</p>
+                </>
+              ) : (
+                <>
+                  <GoHome size={32} />
+                  <p className={styles.linkText}>모두와</p>
+                </>
+              )}
+            </div>
+          </Link>
         </li>
-        <li onClick={() => { router.push('/search'); setActiveIcon('search'); }}>
-          <div className={styles.linkItem}>
-          <RiCompassDiscoverLine size={35} color={activeIcon === 'search' ? 'black' : 'gray'} />
-            <p className={styles.linkText}>모두톡</p>
-          </div>
+        <li>
+          <Link href="./search">
+            <div className={styles.linkItem}>
+              {segment === "/search" ? (
+                <>
+                  <IoSearchCircle size={34} />
+                  <p className={styles.linkText}>모두톡</p>
+                </>
+              ) : (
+                <>
+                  <IoSearchCircleOutline size={34} />
+                  <p className={styles.linkText}>모두톡</p>
+                </>
+              )}
+            </div>
+          </Link>
         </li>
-        <li onClick={() => { router.push('/talk'); setActiveIcon('talk'); }}>
-          <div className={styles.linkItem}>
-          <HiOutlineChatAlt size={35} color={activeIcon === 'talk' ? 'black' : 'gray'} />
-            <p className={styles.linkText}>채팅</p>
-          </div>
+
+        <li>
+          <Link href="/talk">
+            <div className={styles.linkItem}>
+              {segment === "/talk" ? (
+                <>
+                  <RiChat3Fill size={32} />
+                  <p className={styles.linkText}>채팅</p>
+                </>
+              ) : (
+                <>
+                  <RiChat3Line size={32} />
+                  <p className={styles.linkText}>채팅</p>
+                </>
+              )}
+            </div>
+          </Link>
         </li>
-        <li onClick={() => { router.push('/profile'); setActiveIcon('profile'); }}>
-          <div className={styles.linkItem}>
-          <CgProfile size={35} color={activeIcon === 'profile' ? 'black' : 'gray'} />
-            <p className={styles.linkText}>프로필</p>
-          </div>
+        <li>
+          <Link href="/profile">
+            <div className={styles.linkItem}>
+              {segment === "/profile" ? (
+                <>
+                  <FaUserCircle size={32} />
+                  <p className={styles.linkText}>프로필</p>
+                </>
+              ) : (
+                <>
+                  <FaRegUserCircle size={32} />
+                  <p className={styles.linkText}>프로필</p>
+                </>
+              )}
+            </div>
+          </Link>
         </li>
       </ul>
     </nav>
