@@ -2,22 +2,44 @@
     {
         "id": 1,
         "chatRoomImage": "./하사웨이.png",
+        "chatRoomName": "이노베이드",
+        "chatRoomIntro": "이노베이드는 기억될 것입니다...",
+        "tags": ["#독서클럽", "#책토론", "#문학사랑"],
+        "isPrivate": false,
+        "capacity": 40,
+        "currentMembers": 20,
+        "rules": [
+            "모두를 존중해주세요.",
+            "부적절한 언어 사용을 자제해주세요.",
+            "개인정보를 공유하지 않도록 주의해주세요.",
+            "특정인이나 그룹을 비방하지 않도록 해주세요."
+        ],
+        "gender": "all",
+        "keyfood": ["돈까스", "국밥"],
+        "minAge": 22,
+        "maxAge": 25,
+        "question": "이노베이드는?"
+    },
+    {
+        "id": 2,
+        "chatRoomImage": "./하사웨이.png",
         "chatRoomName": "향설 모두미",
         "chatRoomIntro": "향설 생활관에서 함께 이야기 나눠요",
         "tags": ["#향설_생활관", "#커뮤니티", "#취미공유"],
         "isPrivate": false,
         "capacity": 30,
-        "currentMembers": 15
-    },
-    {
-        "id": 2,
-        "chatRoomImage": "./하사웨이.png",
-        "chatRoomName": "책 읽는 사람들",
-        "chatRoomIntro": "다양한 책을 읽고 토론하는 곳",
-        "tags": ["#독서클럽", "#책토론", "#문학사랑"],
-        "isPrivate": true,
-        "capacity": 40,
-        "currentMembers": 20
+        "currentMembers": 29,
+        "rules": [
+            "모두를 존중해주세요.",
+            "부적절한 언어 사용을 자제해주세요.",
+            "개인정보를 공유하지 않도록 주의해주세요.",
+            "특정인이나 그룹을 비방하지 않도록 해주세요."
+        ],
+        "gender": "female",
+        "keyfood": ["마라탕", "국밥"],
+        "minAge": 21,
+        "maxAge": 40,
+        "question": "성실한 활동 부탁드립니다!"
     },
     {
         "id": 3,
@@ -27,6 +49,18 @@
         "tags": ["#축구", "#스포츠", "#주말활동"],
         "isPrivate": false,
         "capacity": 22,
-        "currentMembers": 22
+        "currentMembers": 22,
+        "rules": [
+            "모두를 존중해주세요.",
+            "부적절한 언어 사용을 자제해주세요.",
+            "개인정보를 공유하지 않도록 주의해주세요.",
+            "특정인이나 그룹을 비방하지 않도록 해주세요."
+        ],
+        "gender": "male",
+        "keyfood": ["돈까스", "국밥"],
+        "minAge": 22,
+        "maxAge": 25,
+        "question": "성실한 활동 부탁드립니다!"
+
     }
 ]

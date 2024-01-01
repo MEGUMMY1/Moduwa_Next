@@ -1,9 +1,14 @@
+//app/search/page
+
 "use client";
 import React, { useState } from "react";
+import Link from 'next/link'
 import ThumNail from "./_components/thumbnail";
-import styles from "./page.module.css";
+import styles from "./_components/page.module.css";
 import chatRoomData from '../../../../public/searchdata.json';
+
 import { FiSearch } from 'react-icons/fi';
+import { BiCommentAdd } from "react-icons/bi";
 
 const Page = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -15,18 +20,24 @@ const Page = () => {
 
   return (
     <div className={styles.Container}>
-      <div className={styles.SearchBar}>
-        <input
-          type="text"
-          placeholder="검색..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className={styles.Input}
-        />
+      <div className={styles.TopBar}>
+        <div className={styles.SearchBar}>
+          <input
+            type="text"
+            placeholder="검색..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={styles.Input}
+          />
+        </div>
 
-        <button className={styles.SearchButton} onClick={handleSearch}>
-          <FiSearch />
+        <button onClick={handleSearch}>
+          <FiSearch className={styles.SearchButton}/>
         </button>
+
+        <Link href="/search/createTab">
+          <BiCommentAdd className={styles.addChatButton}/>
+        </Link>
       </div>
 
       <div className={styles.ThumbNailArea}>
