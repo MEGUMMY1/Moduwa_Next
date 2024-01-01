@@ -10,6 +10,7 @@ function SignInButton() {
 
   if (session && session.user) {
     return (
+      <>
       <div className={styles.LoginBox}>
         <h1 className={styles.profile_name}>{session.user.name}</h1>
         <button
@@ -19,6 +20,17 @@ function SignInButton() {
           로그아웃
         </button>
       </div>
+      <div className={styles.profile_box}>
+        <div className={styles.profile_box_div}>
+          <p className={styles.profile_box_txt}>회원등급</p>
+          <p className={styles.profile_box_value}>레벨</p>
+        </div>
+        <div className={styles.profile_box_div}>
+          <p className={styles.profile_box_txt}>이용내역</p>
+          <p className={styles.profile_box_value}>1 건</p>
+        </div>
+    </div>
+    </>
     );
   }
 
@@ -28,7 +40,7 @@ function SignInButton() {
         className={`${styles.signInButton} ${styles.logInButton}`}
         onClick={() => signIn()}
       >
-        로그인하기
+        로그인
       </button>
     </div>
   );
