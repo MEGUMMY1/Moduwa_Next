@@ -27,7 +27,9 @@ function SignInBtn() {
           </Link>
         </div>
         <div className={styles.profile_box_div}>
-          <p className={styles.profile_box_value}>메뉴 관리</p>
+          <Link href="./store/menu">
+            <p className={styles.profile_box_value}>메뉴 관리</p>
+          </Link>
         </div>
     </div>
     </>

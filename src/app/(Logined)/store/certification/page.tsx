@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import styles from "./_components/certification.module.css";
 import DaumPostcode from "react-daum-postcode";
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 interface AddressData {
     zipCode: string;
@@ -31,6 +33,7 @@ const Postcode: React.FC<{ onAddressChange: (addressData: AddressData) => void }
 }
 
 export default function Page() {
+    const router = useRouter();
     const [storeName, setStoreName] = useState<string>("");
     const [storeType, setStoreType] = useState<string>("");
     const [storePhone, setStorePhone] = useState<string>("");
@@ -43,6 +46,12 @@ export default function Page() {
     return (
         <>
             <div className={styles.certi_container}>
+                <div className={styles.certi_header}>
+                    <button onClick={() => router.back()} className={styles.back_button}>
+                        <IoArrowBackOutline size={"40px"} color={"grey"} />
+                    </button>
+                    <p>가게 등록</p>
+                </div>
                 <div className={styles.certi_imageUpload}>이미지 등록</div>
                 <div className={styles.certi_input_div}>
                     <input type="text" placeholder="상호명" className={styles.certi_input} onChange={(e) => setStoreName(e.target.value)} />
