@@ -19,10 +19,12 @@
   padding-left: 0.5rem;
 }
 
-.chat_room_name{
-    color: #ffffff;
-    font-size: 1.3em;
-    margin-left: 10px;
+
+.chat_room_name {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
 .chat_room_curr {
@@ -42,7 +44,9 @@
 
 .sender_div {
   display: flex;
-  justify-content: flex-end;
+
+  justify-content: end;
+
   align-items: center;
   margin-right: 10px;
   margin-top: 1rem;
