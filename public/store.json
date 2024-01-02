@@ -1,0 +1,45 @@
+{
+    "store": {
+        "id": 1,
+        "storeId": 1,
+        "createdAt": "2024-01-01T11:52:03.801Z",
+        "updatedAt": "2024-01-01T11:52:03.801Z",
+        "name": "석희상회",
+        "location": 111,
+        "description": "최고의음식",
+        "phone": "010-1234-4126",
+        "diningHours": "10:00 ~ 17:00",
+        "menus": [
+            {
+              "id": 1,
+              "name": "참치김밥",
+              "price": 5500,
+              "storeId": 1
+            },
+            {
+              "id": 2,
+              "name": "돈까스김밥",
+              "price": 6000,
+              "storeId": 1
+            },
+            {
+              "id": 3,
+              "name": "소세지김밥",
+              "price": 5500,
+              "storeId": 1
+            }
+          ],
+        "ownerId": 1,
+        "owner": [
+          {
+            "id": 1,
+            "kakaoId": 123456,
+            "createdAt": "2024-01-01T11:52:03.801Z",
+            "updatedAt": "2024-01-01T11:52:03.801Z",
+            "profileImage": "string",
+            "name": "이석희"
+          }
+        ],
+        "posts": "특전 할인"
+    }
+}

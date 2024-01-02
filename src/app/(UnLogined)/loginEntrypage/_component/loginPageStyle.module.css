@@ -1,11 +1,27 @@
 /* app/(UnLogined)/loginEntrypage/loginPage/Page.module.css */
+
+.Container{
+  display: flex; /* 가로 방향 유지를 위해 flex 설정 */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  min-height: 100%;
+  background-color: #fff;
+}
+
 .loginContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   height: 100dvh;
   align-items: center;
-  padding: 20px;
+}
+
+.logo {
+  width: 70%;
+  height: auto;
 }
 
 .loginTitle {

@@ -49,6 +49,7 @@ model User {
 model Store {
   id              Int      @id @default(autoincrement())
   storeId         String   @unique
+  imageUrl String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   name            String //가게이름 "석희상회 순천향대점"
@@ -138,6 +139,7 @@ model ChatRoom {
   hashtags      String[] // 채팅방 해시태그 목록
   ageRestriction Int?    // 연령 제한 (예: 18)
   genderRestriction String? // 성별 제한 ("male", "female", "none")
+  password        String?  // 채팅방 비밀번호 (옵셔널)
   participants  User[]   // 참여자
   messages      Message[]
 }

@@ -1,11 +1,16 @@
+
+// app/(Logined)/profile/page.tsx
+
 "use client";
 import { useSession } from "next-auth/react";
 
 import React from "react";
 import styles from "./_components/profile.module.css";
 import profileData from "../../../../public/profile.json";
+
 import SignInButton from "@/app/(Logined)/profile/_components/SignInButton";
 import Image from "next/image";
+
 
 interface Profile {
   id: number;
@@ -33,12 +38,15 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
             alt={profile.name}
             width={140}
             height={140}
+
+   
             style={{
               objectFit: "contain",
               borderRadius: "50%",
               border: "1.5px solid #aaa",
             }}
             //layout="intrinsic" // 또는 'fixed', 'intrinsic' 등에 따라 설정
+
           />
         ) : (
           <div>Loading...</div>
@@ -55,7 +63,11 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
           <p className={styles.profile_box_txt}>이용내역</p>
           <p className={styles.profile_box_value}>{profile.count}건</p>
         </div>
-      </div>
+      ) : (
+        <div></div>
+      )}
+      {/* <p className={styles.profile_name}>{profile.name}</p>  */}
+      <SignInBtn />      
     </>
   );
 };

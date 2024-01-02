@@ -21,6 +21,7 @@
 
 .profile_item {
   width: 100%;
+
   margin-top: 2.5rem;
 }
 
@@ -32,34 +33,22 @@
   margin-bottom: 1.5rem;
 }
 
-.profile_box {
+.account_change_div{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  margin-left: 1rem;
+}
+
+.account_change_btn{
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
   background-color: #ffffff;
-  width: 85%;
-  height: 7rem;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.profile_box_div {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.profile_box_txt {
-  font-size: 1em;
-  margin-bottom: 0.3rem;
   color: #3f3f3f;
-}
-
-.profile_box_value {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #3f3f3f;
+  font-size: 0.8em;
+  font-weight: 500;
 }
 
 /* 쓰레기같은 SE를 위한 레이아웃 지정 */

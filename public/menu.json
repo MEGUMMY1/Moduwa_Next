@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "얌샘김밥",
+        "price": 2800,
+        "storeId": 1
+    },
+    {
+        "id": 2,
+        "name": "참치샐러드김밥",
+        "price": 3500,
+        "storeId": 1
+    },
+    {
+        "id": 3,
+        "name": "돈까스김밥",
+        "price": 3500,
+        "storeId": 1
+    },
+    {
+        "id": 4,
+        "name": "날치알톡톡김밥",
+        "price": 3800,
+        "storeId": 1
+    },
+    {
+        "id": 5,
+        "name": "얌샘얌샘얌샘얌샘얌샘김밥",
+        "price": 3500,
+        "storeId": 1
+    },
+    {
+        "id": 6,
+        "name": "김치볶음밥",
+        "price": 6000,
+        "storeId": 1
+    },
+    {
+        "id": 7,
+        "name": "우동",
+        "price": 50000,
+        "storeId": 1
+    },
+    {
+        "id": 8,
+        "name": "김치볶음밥",
+        "price": 6000,
+        "storeId": 1
+    },
+    {
+        "id": 9,
+        "name": "우동",
+        "price": 50000,
+        "storeId": 1
+    }
+]
