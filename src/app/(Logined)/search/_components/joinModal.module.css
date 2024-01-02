@@ -18,25 +18,43 @@
     max-width: 400px;
 
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 
-    background-color: skyblue; /* 원하는 배경색 */
-    border-radius: 10px; /* 모달의 모서리를 둥글게 */
+    padding: 20px;
+    background-color: #ffffff; /* 원하는 배경색 */
+    border-radius: 10px;
     z-index: 1001; /* 배경보다 앞에 오도록 z-index 설정 */
 }
 
 .closeButton {
     width: 30px;
     height: 30px;
+    
+    margin-bottom: 40px;
 }
 
-.image {
+.commentBox {
     display: flex;
     flex-direction: column;
     width: 100%;
 
     align-items: center;
 
-    padding: 10px; 
-    background-color: brown;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.joinButton {
+    width: 100px;
+    
+    text-align: center;
+    padding: 5px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: lightblue;
 }

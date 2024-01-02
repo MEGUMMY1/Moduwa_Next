@@ -7,8 +7,8 @@
     margin-bottom: 10px;
     align-items: center;
 
+    border: 1px solid #ddd;
     padding: 5px;
-    background-color: skyblue;
 }
 
 .TopBar {
@@ -24,7 +24,6 @@
 
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: pink;
 }
 
 .contentContainer {
@@ -36,58 +35,193 @@
     align-items: center;
     
     padding: 5px;
-    background-color: brown;
 }
 
-.image {
-    width: 11em;
-    height: 16em;
-
+.imageContainer {
+    position: relative;
+    width: 300px; /* 원하는 너비 */
+    height: 200px; /* 원하는 높이 */
     margin-bottom: 10px;
-    background-color: white;
 }
 
-.nameInputBox {
-    background-color: purple;
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너를 꽉 채우도록 */
 }
 
-.introInputBox {
-
-    background-color: greenyellow;
-}
-
-.hashtagInputBox {
-
-    background-color: skyblue;
-}
-
-.privateBlock {
-
-    background-color: cadetblue;
-}
-
-.capacityBlock {
-
-    background-color: olive;
-}
-
-.requirementBlock {
-
-    background-color: orange;
-}
-
-.registerButton {
-
+.imageSettingButton {
+    position: absolute;
+    bottom: 10px; /* 하단에서 10px */
+    right: 10px; /* 우측에서 10px */
+    padding: 5px 10px;
+    /* 추가 스타일링 */
 }
 
 .nameInputBox,
+.passwordInputBox,
 .introInputBox,
 .hashtagInputBox,
 .privateBlock,
 .capacityBlock,
 .requirementBlock {
+    display: flex;
+    flex-direction: column;
     width: 100%;
 
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
     padding: 10px;
-    margin-bottom: 10px; /* 하단 간격 추가 */
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.passwordElement,
+.privateElement,
+.capacityElement {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 5px;
+}
+
+.nameInputBox input,
+.passwordInputBox .animebox input,
+.introInputBox input,
+.hashtagInputBox input {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+}
+
+/* 비밀번호 설정 */
+.passwordInputBox .animebox input {
+    padding: 5px;
+}
+.passwordTextBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: space-between;
+}
+.passwordElement {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* 해시태그 설정 */
+.hashtagInputBox {
+    flex-direction: row;
+}
+.hashtagsList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    width: 95%;
+
+    border-bottom: 1px solid #ddd;
+
+    margin-bottom: 10px;
+    background-color: white;
+}
+.hashtag {
+    margin: 3px;
+}
+
+/* 공개, 비공개 여부 설정 */
+.privateBlock {
+    height: 120px;
+    justify-content: space-between;
+}
+
+/* 최대 수용 인원 설정 */
+.capacityBlock {
+    height: 80px;
+    justify-content: space-between;
+}
+.capacityElement {
+    width: 40%;
+    justify-content: space-between;
+    align-self: center;
+}
+
+.animebox {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    transition: height 1s ease, padding 0.3s ease;
+    overflow: hidden; 
+}
+
+/* 조건 설정 */
+.requireElement {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 5px;
+}
+.requireTextBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    justify-content: space-between;
+}
+.requireAgeElement {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 5px;
+ }
+.requriementControlBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    justify-content: space-between;
+    margin-top: 10px;
+ }
+
+/* 조건 설정 - 나이, 성별 설정 */
+.genderSelectBlock {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
+ }
+.genderSelectBox {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 5px;
+    font-size: 14px;
+}
+.requireAgeTextBox {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
