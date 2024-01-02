@@ -124,29 +124,13 @@ const EventBox: React.FC<EventBoxProps> = ({ event }) => {
         </div>
         <div className={styles.optionalbox}>
           <p>매장</p>
-          <div>15:00 ~ 18:00</div>
-          <div>
-            <input
-              type="checkbox"
-              className={styles.checkboxLarge}
-              checked={storeChecked}
-              onChange={handleStoreCheckboxChange}
-            />
-            선택
-          </div>
+          <div>diningTime</div>
+          <div>현재신청수/diningMaxPeople</div>
         </div>
         <div className={styles.optionalbox}>
           <p>포장</p>
-          <div className={styles.timeoptionbox}>15:00 / 17:00</div>
-          <div>
-            <input
-              type="checkbox"
-              className={styles.checkboxLarge}
-              checked={packageChecked}
-              onChange={handlePackageCheckboxChange}
-            />
-            선택
-          </div>
+          <div className={styles.timeoptionbox}>takeawayTime</div>
+          <div>현재신청수/takeawayMaxPeople</div>
         </div>
       </footer>
     </article>
