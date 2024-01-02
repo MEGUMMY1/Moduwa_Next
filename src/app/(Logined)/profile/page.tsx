@@ -6,10 +6,9 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import styles from "./_components/profile.module.css";
 import profileData from "../../../../public/profile.json";
-
-import SignInButton from "@/app/(Logined)/profile/_components/SignInButton";
+import SignInBtn from "@/app/(Logined)/profile/_components/SignInBtn";
 import Image from "next/image";
-
+import Link from "next/link";
 
 interface Profile {
   id: number;
@@ -29,38 +28,26 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
   const { data: session } = useSession();
 
   return (
-    <>
-      <div className={styles.profile_item}>
-        {session ? (
+    <>      
+      {session ? (
+        <div className={styles.profile_item}>
+          <div className={styles.account_change_div}>
+            <Link href="./store">
+              <button className={styles.account_change_btn}>계정 전환</button>
+            </Link>
+          </div>
           <Image
             src={session.user.image || "/image/세츠나2.png"} // 기본 이미지 설정}
             alt={profile.name}
-            width={140}
-            height={140}
-
-   
+            width={100}
+            height={100}
             style={{
               objectFit: "contain",
               borderRadius: "50%",
               border: "1.5px solid #aaa",
             }}
             //layout="intrinsic" // 또는 'fixed', 'intrinsic' 등에 따라 설정
-
-          />
-        ) : (
-          <div>Loading...</div>
-        )}
-        {/* <p className={styles.profile_name}>{profile.name}</p>  */}
-        <SignInButton />
-      </div>
-      <div className={styles.profile_box}>
-        <div className={styles.profile_box_div}>
-          <p className={styles.profile_box_txt}>회원등급</p>
-          <p className={styles.profile_box_value}>{profile.level}</p>
-        </div>
-        <div className={styles.profile_box_div}>
-          <p className={styles.profile_box_txt}>이용내역</p>
-          <p className={styles.profile_box_value}>{profile.count}건</p>
+          />                  
         </div>
       ) : (
         <div></div>
