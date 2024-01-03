@@ -1,157 +1,118 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-//어떤 종류의 DB사용할 지.
-// datasource db {
-//   provider = "sqlite"
-//   url      = env("DATABASE_URL")
-// }
-
-//클라이언트에서 Prisma DB 연결
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("POSTGRES_PRISMA_URL") // 연결 풀링을 사용하는 Postgres 연결
-  directUrl = env("POSTGRES_URL_NON_POOLING") // 직접 연결을 사용하는 Postgres 연결
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-//User
-//Store
-//Menu
-//MenuItem
-//Post
-//Store는 하나의 User에 속함
-//Menu는 하나의 Store에 속함
-//Post는 store에 속함
-//MenuItem은 하나의 Menu항목에 연결
-// 사용자 모델
 model User {
-  id              Int       @id @default(autoincrement())
-  kakaoId         String?   @unique
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  profileImage    String? 
-  name            String?
-  ageRange        String?   // 예: "20-29"
-  gender          String?   // 예: "male", "female"
-
-  role            String    // 예: "consumer", "seller" => seller가 되면 판매자 창이 있음
-  stores    Store[]    //사용자가 소유한 가게 리스트
-
-  payments        Payment[] //결제내역
-  chatRooms       ChatRoom[] //참여중인 채팅방
-  messages Message[] //메세지 내역
+  id           Int        @id @default(autoincrement())
+  kakaoId      String?    @unique
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  profileImage String?
+  name         String?
+  ageRange     String?
+  gender       String?
+  role         String
+  messages     Message[]
+  payments     Payment[]
+  stores       Store[]
+  chatRooms    ChatRoom[] @relation("ChatRoomToUser")
 }
 
-//스토어 모델
 model Store {
-  id              Int      @id @default(autoincrement())
-  storeId         String   @unique
-  imageUrl String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  name            String //가게이름 "석희상회 순천향대점"
-  location        String   // 가게 위치 정보 "좌표"
-  description     String?  // 가게 설명 "항상 최선을 다하는 가게가 되겠습니다."
-  phone           String?  // 연락처 "010-1234-5678"
-  diningHours     String   // 예: "09:00-17:00(브레이크타임15:00~16:00)"
-  menus       Menu[]  // 이 가게의 메뉴 목록
-
-  ownerId   Int
-  owner     User    @relation(fields: [ownerId], references: [id])
-
-  posts           Post[]
+  id          Int      @id @default(autoincrement())
+  storeId     String   @unique
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  location    String
+  description String?
+  phone       String?
+  diningHours String
+  ownerId     Int
+  imageUrl    String?
+  menus       Menu[]
+  posts       Post[]
+  owner       User     @relation(fields: [ownerId], references: [id])
 }
 
-//각 스토어가 등록할 메뉴판
 model Menu {
-  id          Int         @id @default(autoincrement())
-  store       Store       @relation(fields: [storeId], references: [id])
-  name        String      // 메뉴 이름
-  imageUrl    String?     // 메뉴 이미지 URL
-  price       Float       // 기본 가격
-  storeId     Int
-  
-  menuItems   MenuItem[]  // 이 메뉴를 사용하는 MenuItem 목록
+  id        Int        @id @default(autoincrement())
+  name      String
+  imageUrl  String?
+  price     Float
+  storeId   Int
+  store     Store      @relation(fields: [storeId], references: [id])
+  menuItems MenuItem[]
 }
 
-// Post와 Menu 사이의 다대다 관계를 위한 중간 테이블 (인스턴스)
 model MenuItem {
-  id            Int     @id @default(autoincrement())
-  //MenuItem과 연결된 POST
+  id            Int    @id @default(autoincrement())
   postId        Int
-  post          Post    @relation(fields: [postId], references: [id])
-  //연결된 메뉴
   menuId        Int
-  menu          Menu    @relation(fields: [menuId], references: [id])
-  //Post에 적용할 고유의 할인 가격
   discountPrice Float?
+  menu          Menu   @relation(fields: [menuId], references: [id])
+  post          Post   @relation(fields: [postId], references: [id])
 }
 
-
-// 게시글 모델 (인스턴스)
 model Post {
-  id                Int      @id @default(autoincrement())
+  id                Int        @id @default(autoincrement())
   description       String?
   eventDate         DateTime
   deadline          DateTime
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  published         Boolean  @default(false)
-
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+  published         Boolean    @default(false)
   storeId           Int
-  store             Store    @relation(fields: [storeId], references: [id])
-
+  diningAvailable   Boolean
+  diningMenus       String[]
+  diningTime        String?
+  diningMaxPeople   Int?
+  seatArrangeExcuse Boolean
+  takeawayAvailable Boolean
+  takeawayMenus     String[]
+  takeawayTime      String?
+  takeawayMaxPeople Int?
+  minimumAmount     Int?
   menuItems         MenuItem[]
-
-  minimumAmount Int? //최소 신청 인원수
-  // 매장 식사 관련 정보
-  diningAvailable   Boolean  // 매장 식사 가능 여부
-  diningMenus       String[] // 매장 식사 가능 메뉴
-  diningTime        String?  // 매장 식사 가능 시간대 (예: "15:00")
-  diningMaxPeople   Int?     // 매장 식사 시간대별 최대 인원
-  seatArrangeExcuse Boolean //매장식사 좌석배치가 여건상 합석하게될수도 있음을 알림
-
-  // 포장 식사 관련 정보
-  takeawayAvailable Boolean  // 포장 식사 가능 여부
-  takeawayMenus     String[] // 포장 식사 가능 메뉴
-  takeawayTime      String?  // 포장 식사 가능 시간대 (예: "16:00")
-  takeawayMaxPeople Int?     // 포장 식사 시간대별 최대 인원
+  payments          Payment[]
+  store             Store      @relation(fields: [storeId], references: [id])
 }
 
-
-// 결제 정보 모델
 model Payment {
-  id            Int      @id @default(autoincrement())
-  userId        Int
-  user          User     @relation(fields: [userId], references: [id])
-  amount        Float
-  method        String   // 예: "카카오페이", "토스페이"
-  status        String   // 예: "완료", "대기중"
-  createdAt     DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  amount    Float
+  method    String
+  status    String
+  createdAt DateTime @default(now())
+  postId    Int?
+  post      Post?    @relation(fields: [postId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 }
 
-// 채팅방 모델
 model ChatRoom {
-  id            Int      @id @default(autoincrement())
-  name          String?  // 채팅방 이름 (옵셔널)
-  hashtags      String[] // 채팅방 해시태그 목록
-  ageRestriction Int?    // 연령 제한 (예: 18)
-  genderRestriction String? // 성별 제한 ("male", "female", "none")
-  password        String?  // 채팅방 비밀번호 (옵셔널)
-  participants  User[]   // 참여자
-  messages      Message[]
+  id                Int       @id @default(autoincrement())
+  name              String?
+  hashtags          String[]
+  ageRestriction    Int?
+  genderRestriction String?
+  password          String?
+  messages          Message[]
+  participants      User[]    @relation("ChatRoomToUser")
 }
 
-// 메시지 모델
 model Message {
-  id            Int      @id @default(autoincrement())
-  sender        User     @relation(fields: [senderId], references: [id])
-  chatRoom      ChatRoom @relation(fields: [chatRoomId], references: [id])
-  createdAt     DateTime @default(now())
-  content       String
-  senderId      Int
-  chatRoomId    Int
+  id         Int      @id @default(autoincrement())
+  createdAt  DateTime @default(now())
+  content    String
+  senderId   Int
+  chatRoomId Int
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
+  sender     User     @relation(fields: [senderId], references: [id])
 }
