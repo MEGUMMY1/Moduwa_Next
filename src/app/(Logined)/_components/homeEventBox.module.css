@@ -11,6 +11,32 @@
   border-radius: 12px;
 }
 
+.eventContainer figure,
+.eventContainer address,
+.eventContainer time,
+.eventContainer section,
+.eventContainer footer {
+  font-size: 0.7em; /* Slightly smaller than the base font size */
+}
+
+.eventContainer header {
+  font-size: 1em; /* Slightly larger than the base font size */
+}
+
+.eventContainer section span {
+  font-size: 0.8em; /* Smaller for subtlety */
+}
+
+.eventContainer footer p,
+.eventContainer footer a,
+.eventContainer footer ul {
+  font-size: 0.9em; /* Consistent with other sub-elements */
+}
+
+.eventContainer footer ul li {
+  font-size: 0.8em; /* Smaller for list items */
+}
+
 .upperEvent,
 .downBox {
   padding: 8px 0;
