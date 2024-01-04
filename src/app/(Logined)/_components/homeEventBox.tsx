@@ -192,7 +192,7 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
             <span className={styles.additionalItems}>
               외 {post.menuItems.length - 1}종
             </span>
-          )}{" "}
+          )}
           -
           <span className={styles.originalPrice}>
             <s>{firstMenuItem?.price}</s>
@@ -231,7 +231,7 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
             <div className={styles.orderTypeBox}>
               <span className={styles.orderTypeIcon}>
                 <GiMeal />
-              </span>{" "}
+              </span>
               {/* 매장 아이콘 */}
               <div className={styles.orderTypeInfo}>
                 <p>매장</p>
