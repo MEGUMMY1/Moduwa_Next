@@ -1,107 +1,75 @@
+// app\(Logined)\talk\[id]\page.tsx
 "use client";
-import React from "react";
-import styles from "./_components/chat.module.css";
-import { useRouter } from "next/navigation";
-import { IoArrowBackOutline } from "react-icons/io5";
-import chatData from "../../../../../public/chat.json";
-import chatRoomsData from "../../../../../public/chatRooms.json";
-import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import EventBox from "./_components/chatEventBox";
+import prisma from "../../../lib/prisma";
 
-interface Menu {
-  name: string;
-  originPrice: number;
-  salePrice: number;
+interface Props {
+  params: {
+    id: string;  // id는 문자열
+  };
 }
 
-interface Chat {
-  id: number;
-  sender: string;
-  senderImg: string;
-  sendDate: string;
-  sendTime: string;
-  eventid: number;
-  image: string;
-  name: string;
-  location: number;
-  eventDate: string;
-  eventStartTime: string;
-  eventEndTime: string;
-  joinDeadlineDate: string;
-  joinDeadlineTime: string;
-  menu: Menu[];
-  minimumJoin: number;
-  nowJoin: number;
-  maximumJoin: number;
-  pickType: string[];
-}
+export default function Page({ params }: Props) {
+  const [chatRoom, setChatRoom] = useState<null | ChatRoom>(null);
+  const id = Number(params.id);  // 문자열을 숫자로 변환
 
-const ChatComponent: React.FC<{ chat: Chat }> = ({ chat }) => {
-  return (
-    <>
-      <div className={styles.sender_div}>
-        <p className={styles.chat_sender}>{chat.sender}</p>
-        <Image
-          src={"/image/세츠나2.png"}
-          width={40} // width 속성 설정
-          height={40} // height 속성 설정
-          alt="Sender Image"
-          className={styles.sender_img}
-          layout="fixed" // 고정된 레이아웃을 사용
-        />
-      </div>
-      <div className={styles.chat_item}>
-        <div className={styles.chat_item_a}>
-          <img src={chat.image} className={styles.chat_img} />
-          <div className={styles.chat_info_div}>
-            <p className={styles.chat_name}>{chat.name}</p>
-            <p className={styles.chat_info}>
-              {chat.eventDate} | {chat.eventStartTime} ~ {chat.eventEndTime}
-            </p>
-            <p className={styles.chat_info}>{chat.menu[0].name}</p>
-            <div className={styles.chat_info_price}>
-              <p className={styles.chat_info_line}>
-                {chat.menu[0].originPrice}원
-              </p>
-              <p className={styles.chat_info}> → {chat.menu[0].salePrice}원</p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.chat_item_b}>
-          <button type="button" className={styles.chat_btn_a}>
-            {chat.pickType}
-          </button>
-          <button type="button" className={styles.chat_btn_b}>
-            참가하기
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await prisma.chatRoom.findUnique({
+          where: {
+            id,
+          },
+          select: {
+            id: true,
+            name: true,
+            capacity: true,
+            hashtags: true,
+            info: true,
+            password: true,
+            isPrivate: true,
+            genderRestriction: true,
+            minAge: true,
+            maxAge: true,
+            participants: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+            messages: {
+              select: {
+                id: true,
+                content: true,
+                sender: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        });
+        setChatRoom(data);
+      } catch (error) {
+        console.error("Error fetching chatRoom:", error);
+      }
+    }
 
-const Page: React.FC = () => {
-  const router = useRouter();
-  const firstRoom = chatRoomsData[0];
+    if (id) {
+      fetchData();
+    }
+  }, [id]);  // 의존성 배열에 id를 추가
+
+  if (!chatRoom) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
-      <div className={styles.chat_container}>
-        <div className={styles.chat_header}>
-          <button onClick={() => router.back()} className={styles.back_button}>
-            <IoArrowBackOutline size={"40px"} color={"white"} />
-          </button>
-          <p className={styles.chat_room_name}>{firstRoom.name}</p>
-          <p className={styles.chat_room_curr}>({firstRoom.current})</p>
-        </div>
-        <div className={styles.chat_body}>
-          {chatData.map((chat) => (
-            <ChatComponent key={chat.id} chat={chat} />
-          ))}
-        </div>
-        <div className={styles.chat_send_container}></div>
-      </div>
+      <EventBox chatRoom={chatRoom} />
     </>
   );
-};
-
-export default Page;
+}
