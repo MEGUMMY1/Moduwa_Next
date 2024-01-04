@@ -4,7 +4,8 @@ import Image from "next/image";
 import styles from "./homeEventBox.module.css";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
-
+import { GiMeal } from "react-icons/gi";
+import { GiBeachBag } from "react-icons/gi";
 interface MenuType {
   name: string;
   imageUrl: string | null;
@@ -228,7 +229,9 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
         <div className={styles.details}>
           <div className={styles.orderTypeContainer}>
             <div className={styles.orderTypeBox}>
-              <span className={styles.orderTypeIcon}>🍽️</span>{" "}
+              <span className={styles.orderTypeIcon}>
+                <GiMeal />
+              </span>{" "}
               {/* 매장 아이콘 */}
               <div className={styles.orderTypeInfo}>
                 <p>매장</p>
@@ -244,7 +247,9 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
               </div>
             </div>
             <div className={styles.orderTypeBox}>
-              <span className={styles.orderTypeIcon}>🛍️</span>
+              <span className={styles.orderTypeIcon}>
+                <GiBeachBag />
+              </span>
               {/* 포장 아이콘 */}
               <div className={styles.orderTypeInfo}>
                 <p>포장</p>
