@@ -237,7 +237,9 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
                 <p>매장</p>
                 <div className={styles.orderTypeProgressContainer}>
                   <div
-                    className={styles.orderTypeProgressBar}
+                    className={`${styles.orderTypeProgressBar} ${
+                      !isDiningAvailable && styles.orderTypeProgressUnavailable
+                    }`}
                     style={{
                       width: `${(1 / (post.diningMaxPeople || 1)) * 100}%`,
                     }}
@@ -255,7 +257,10 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
                 <p>포장</p>
                 <div className={styles.orderTypeProgressContainer}>
                   <div
-                    className={styles.orderTypeProgressBar}
+                    className={`${styles.orderTypeProgressBar} ${
+                      !isTakeawayAvailable &&
+                      styles.orderTypeProgressUnavailable
+                    }`}
                     style={{
                       width: `${(1 / (post.takeawayMaxPeople || 1)) * 100}%`,
                     }}
