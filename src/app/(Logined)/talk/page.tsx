@@ -3,6 +3,7 @@ import chatRoomsData from "../../../../public/chatRooms.json";
 import styles from "./_components/talk.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { SocketProvider } from '../_components/socket-provider';
 
 interface Room {
   id: number;
@@ -16,6 +17,7 @@ interface Room {
 export default async function Page() {
   return (
     <>
+    <SocketProvider>
       <div className={styles.talklist_container}>
         <div className={styles.talkroom_div}>
           {chatRoomsData.map((room: Room) => (
@@ -42,6 +44,7 @@ export default async function Page() {
           ))}
         </div>
       </div>
+      </SocketProvider>
     </>
   );
 }

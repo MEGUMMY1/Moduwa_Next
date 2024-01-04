@@ -3,9 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgresql"
+  url = env("POSTGRES_MODUWA_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_MODUWA_URL_NON_POOLING") // uses a direct connection
 }
 
 model User {
@@ -21,7 +21,7 @@ model User {
   messages     Message[]
   payments     Payment[]
   stores       Store[]
-  chatRooms    ChatRoom[] @relation("ChatRoomToUser")
+  chatRooms ChatRoom[] @relation("ChatRoomParticipants")
 }
 
 model Store {
@@ -97,14 +97,18 @@ model Payment {
 }
 
 model ChatRoom {
-  id                Int       @id @default(autoincrement())
-  name              String?
-  hashtags          String[]
-  ageRestriction    Int?
-  genderRestriction String?
-  password          String?
-  messages          Message[]
-  participants      User[]    @relation("ChatRoomToUser")
+  id            Int      @id @default(autoincrement())
+  name          String?  // 채팅방 이름 (옵셔널)
+  hashtags      String[] // 채팅방 해시태그 목록
+  info          String?  // 채팅방 소개
+  password      String?  // 채팅방 비밀번호
+  isPrivate     Boolean  // 공개, 비공개 여부
+  capacity      Int      // 최대 수용 인원
+  genderRestriction String? // 성별 제한 ("male", "female", "none")
+  minAge        Int      // 최소 나이 제한
+  maxAge        Int      // 최대 나이 제한
+  participants  User[]   @relation("ChatRoomParticipants")
+  messages      Message[]
 }
 
 model Message {
