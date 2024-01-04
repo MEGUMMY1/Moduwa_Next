@@ -3,6 +3,8 @@
 "use client";
 import React, { ChangeEventHandler, useState } from "react";
 import styles from "./_components/page.module.css";
+import prisma from "@/app/lib/prisma";
+import { useRouter } from "next/navigation";
 
 const CreateTab = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -13,12 +15,18 @@ const CreateTab = () => {
 
     const [name, setName] = useState('');
     const [password, setPassWord] = useState('');
-    const [intro, setIntro] = useState('');
+    const [info, setInfo] = useState('');
     const [hashtagInput, setHashtagInput] = useState(''); // 현재 입력 중인 해시태그
     const [hashtags, setHashtags] = useState<string[]>([]);
-    const [isPublic, setIsPublic] = useState(true);
+    const [checkPublic, setCheckPublic] = useState(true);
+    const [checkPrivate, setCheckPrivate] = useState(false);
     const [isPrivate, setIsPrivate] = useState(false);
     const [capacity, setCapacity] = useState(10);
+    const [genderRestriction, setGenderRestriction] = useState('');
+    const [minAge, setMinAge] = useState(0);
+    const [maxAge, setMaxAge] = useState(0);
+    
+    const router = useRouter();
 
     const handleNameChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         setName(e.target.value);
@@ -28,8 +36,8 @@ const CreateTab = () => {
         setPassWord(e.target.value);
     }
 
-    const handleIntroChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-        setIntro(e.target.value);
+    const handleinfoChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        setInfo(e.target.value);
     }
 
     const handleHashtagInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -44,8 +52,13 @@ const CreateTab = () => {
     };
 
     const handlePublicChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-        setIsPublic(e.target.value === 'public');
-        setIsPrivate(e.target.value !== 'public');
+        setCheckPublic(e.target.value === 'public');
+        setCheckPrivate(e.target.value !== 'public');
+        if(e.target.value === 'public') {
+            setIsPrivate(checkPublic);
+        }else {
+            setIsPrivate(checkPrivate);
+        }
     }
 
     const handleIncreaseCapacity = () => {
@@ -65,17 +78,38 @@ const CreateTab = () => {
         setIsUsingPass(!isUsingPass);
     }
 
-    const handleSubmit = () => {
-        
+    const submitData = async (e: React.SyntheticEvent) => {
+        e.preventDefault()
+
+        try {
+          const body = { name, password, info, hashtags, isPrivate, minAge, maxAge, capacity }
+          await fetch(`/api/room`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+          })
+    
+          router.push('/search')
+        } catch (error) {
+          console.error(error)
+        }
     }
 
     return (
         <div className={styles.Container}>
             <div className={styles.TopBar}>
                 <p>채팅방 만들기</p>
-
+                
                 <div className={styles.registerButton}>
-                    완료
+                    <form onSubmit={submitData}>
+                        <input
+                            type="submit"
+                            value="Create"
+                        />
+                        <a className={styles.back} href="/">
+                            or Cancel
+                        </a>
+                    </form>
                 </div>
             </div>
             
@@ -101,8 +135,8 @@ const CreateTab = () => {
                     </div>
                 </div>
 
-                <div className={styles.introInputBox}>
-                    <input type="text" value={intro} onChange={handleIntroChange} placeholder="채팅방 소개 입력"/>
+                <div className={styles.infoInputBox}>
+                    <input type="text" value={info} onChange={handleinfoChange} placeholder="채팅방 소개 입력"/>
                 </div>
 
                 <div className={styles.hashtagInputBox}>
@@ -128,12 +162,12 @@ const CreateTab = () => {
                     
                     <div className={styles.privateElement}>
                         <span>공개</span>
-                        <input type="radio" name="privacy" value="public" onChange={handlePublicChange} checked={isPublic} />
+                        <input type="radio" name="privacy" value="public" onChange={handlePublicChange} checked={checkPublic} />
                     </div>
 
                     <div className={styles.privateElement}>
                         <span>비공개</span>
-                        <input type="radio" name="privacy" value="private" onChange={handlePublicChange} checked={isPrivate} />
+                        <input type="radio" name="privacy" value="private" onChange={handlePublicChange} checked={checkPrivate} />
                     </div>
                 </div>
 
