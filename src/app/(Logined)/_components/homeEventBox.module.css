@@ -305,6 +305,9 @@
   justify-content: space-around;
   width: 100%;
 }
+.orderTypeProgressUnavailable {
+  background-color: #ccc; /* Change color to indicate unavailability */
+}
 .orderTypeBox {
   display: flex;
   align-items: center;
