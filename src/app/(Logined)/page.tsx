@@ -46,7 +46,6 @@ export default async function Page() {
   //console.log({ posts });
   return (
     <>
-      <h1>메인</h1>
       {posts.map((post) => (
         <EventBox key={post.id} post={post} />
       ))}

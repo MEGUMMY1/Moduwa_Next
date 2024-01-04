@@ -1,268 +1,342 @@
+/* 기본 컨테이너 스타일 */
 .eventContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 93%;
-  margin: 10px 0;
+  margin: 10px auto; /* 중앙 정렬 */
   max-width: 400px;
-  font-size: 20px;
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  overflow: hidden; /* 내용이 넘치지 않도록 */
+  font-size: 20px;
 }
-
-.eventContainer figure,
-.eventContainer address,
-.eventContainer time,
-.eventContainer section,
-.eventContainer footer {
-  font-size: 0.7em; /* Slightly smaller than the base font size */
+/* 작은 화면에서 폰트 크기 조정 */
+@media (max-width: 320px) {
+  .eventContainer {
+    font-size: 16px;
+  }
+  .storeName {
+    width: 120px;
+  }
 }
-
-.eventContainer header {
-  font-size: 1em; /* Slightly larger than the base font size */
-}
-
-.eventContainer section span {
-  font-size: 0.8em; /* Smaller for subtlety */
-}
-
-.eventContainer footer p,
-.eventContainer footer a,
-.eventContainer footer ul {
-  font-size: 0.9em; /* Consistent with other sub-elements */
-}
-
-.eventContainer footer ul li {
-  font-size: 0.8em; /* Smaller for list items */
-}
-
 .upperEvent,
-.downBox {
-  padding: 8px 0;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  align-items: center;
-}
-
-.downBox {
-  height: 32px;
-  border-top: 1px solid rgba(20, 20, 20, 0.1);
-  background-color: #fafafa;
-  padding: 3px 5px;
-  border-radius: 0px;
-  font-size: 0.7em;
-}
+.downBox,
 .animebox {
   display: flex;
-  flex-direction: column;
-  transition: height 1s ease, padding 0.3s ease;
-  overflow: hidden;
-}
-.downBox p {
-  margin: 4px;
-  font-size: 1em;
-}
-.downBox s {
-  color: #777;
-  font-size: 1em;
-  margin: 0 1px 0 8px;
-}
-.imagebox {
-  padding: 10px;
-}
-
-.upperColumnBox {
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
   width: 100%;
-}
-
-.storeInfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0px;
-}
-.storeInfo p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 180px;
-  font-weight: 600;
   font-size: 1em;
-  margin: 0 10px 0 0px;
 }
-.eventInfo p {
-  white-space: nowrap;
+
+/* 상단 사진 옆 박스 */
+.upperColumn {
+  width: 100%;
+  padding-right: 5px;
+}
+
+/* 중단 박스 (메뉴 인포) */
+.downBox {
+  justify-content: space-between;
+  text-align: center;
+  padding: 0px 20px;
+  margin: 0px 0 0 0;
+  background-color: rgb(255, 250, 250);
+  border-radius: 0 0 12px 12px;
+}
+
+/* 하단 애니메이션 박스 */
+.animebox {
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+  transition: height 1s ease;
   overflow: hidden;
-  /* text-overflow: ellipsis; */
-  max-width: 180px;
-  font-weight: 300;
-  font-size: 0.9em;
-}
-.storeInfo p:last-child {
-  /*Location*/
-  font-size: 0.7em;
-  color: #555;
-  font-weight: 400;
-}
-.eventInfo p:first-child {
-  margin-right: 10px; /*event date*/
+  background-color: #fff;
 }
 
-.eventInfo {
+/* 상단 사진 옆 박스 => 내부의 각각의 박스 */
+.timeContainer {
   display: flex;
-  flex-direction: row;
+  gap: 0px; /* flex 아이템 사이의 간격 설정 */
+  width: 100%;
+  margin-top: 0px; /* 상단 여백 추가 */
 }
-.condition {
-  display: flex;
-  flex-direction: row;
-  font-size: 0.8em;
-  padding-bottom: 10px;
+.timeBox {
+  flex: 1; /* flex 컨테이너 내에서 균등하게 공간 차지 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 1px 0; /* 상하 여백 */
+  background-color: #ffffff; /* 어두운 배경색 */
+  color: #222; /* 밝은 글씨색 */
 }
-/* 쓰레기같은 SE를 위한 레이아웃 지정 */
-@media (max-width: 350px) {
-  .eventContainer {
-    font-size: 18px;
-  }
-  .storeInfo p {
-    max-width: 140px;
-    font-size: 20;
-  }
+.dateBox {
+  background-color: rgba(150, 150, 150, 0.05);
+  border-bottom: 0.5px solid rgba(150, 150, 150, 0.1);
 }
 
-.eventProgressBar {
-  position: relative;
-  width: 90%;
-  height: 10px;
-  background-color: #b0c4b1;
-  border-radius: 10px;
-}
-
-.eventProgressBar span {
-  font-size: 0.6em;
-}
-
-.currentProgress {
-  position: relative;
-  height: 100%;
-  background-color: #edafb8;
-  border-radius: 10px 0 0 10px;
-}
-
-.minimumJoinMarker {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  border-left: 1.5px solid #d35e70;
-}
-.minimumText {
+.upperEvent address {
   display: flex;
   justify-content: flex-end;
-  width: 90%;
+  align-items: center;
+}
+.upperEvent span .upperEvent figure,
+.upperEvent address,
+.downBox p,
+.downBox div,
+.animebox p,
+.animebox ul,
+.animebox a {
+  font-size: 0.8em; /* 상속받은 14px에 해당 */
+}
+.storeName {
+  font-size: 1em;
+  white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+  overflow: hidden; /* 내용이 넘치면 숨김 */
+  text-overflow: ellipsis; /* 넘칠 때 '...'으로 표시 */
+  max-width: 170px; /* 최대 너비 설정, 필요에 따라 조절 */
+  padding-bottom: 5px;
+}
+.deadlineTime {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2px;
+  font-weight: 400;
+  padding: 0px 8px;
+  background-color: rgba(255, 200, 200, 0.3);
+  border-right: 4px solid #d32f2f;
+}
+.upperEvent span {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.upperEvent time {
   font-size: 0.7em;
+  font-weight: 500;
+  color: rgba(120, 30, 30, 1);
+}
+.timeContainer time {
+  color: #000;
+  font-size: 0.9em;
+}
+/* 포장 / 매장 시간 스타일 */
+.timeElement {
+  font-size: 1em;
+  color: #333; /* 일반 글씨 색상 */
+}
+.timeElementUnavailable {
+  font-size: 1em;
+  color: #bbb; /* 흐린 글씨 색상 */
+  text-decoration: line-through; /* 가운데 선 */
 }
 
-.progressBarStart,
-.progressBarEnd {
-  position: absolute;
-  font-size: 0.6em;
-  top: -10px; /* Adjust as needed */
-  z-index: 10;
+/* 메뉴/할인가격 */
+.menuItem {
+  color: #000; /* 메뉴 아이템의 기본 글씨 색상 */
+  font-size: 0.9em; /* 적절한 글씨 크기 */
+  margin-bottom: 0px; /* 요소 사이의 간격 */
 }
-.progressBarEnd {
-  right: 0;
+.menuName {
+  font-weight: 400; /* 메뉴 이름의 글씨 굵기 */
 }
-.nowJoinText {
-  position: absolute;
-  right: -5px;
-  font-size: 0.6em;
-  top: -10px; /* Adjust as needed */
+.additionalItems {
+  color: #666; /* 추가 메뉴 아이템의 색상 */
+  font-size: 0.8em; /* 추가 메뉴 아이템의 글씨 크기 */
+  margin-left: 5px; /* 이름과 추가 메뉴 사이의 간격 */
 }
-.animebox {
+.originalPrice {
+  text-decoration: line-through; /* 원래 가격에 취소선 적용 */
+  color: #999; /* 원래 가격의 색상 */
+  font-size: 0.85em;
+  margin: 0 5px; /* 할인 가격과의 간격 */
+}
+.discountPrice {
+  color: #333; /* 할인 가격의 색상 */
+  font-weight: 500; /* 할인 가격의 글씨 굵기 */
+}
+.discountRate {
+  color: #ff5252; /* 할인율의 색상: 밝은 빨간색으로 강조 */
+  font-weight: bold; /* 글씨 굵게 */
+  margin-left: 8px; /* 할인 가격과의 간격 */
+  font-size: 0.9em; /* 글씨 크기 */
+}
+
+/* 매장/포장 */
+.optionContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 5px; /* 옵션 사이의 간격 */
+}
+.optionAvailable {
+  color: #000; /* 선택 가능: 밝은 녹색 */
+  font-weight: bold;
+}
+.optionUnavailable {
+  color: #9e9e9e; /* 선택 불가능: 회색 */
+}
+.optionDivider {
+  color: #333; /* 구분선 색상 */
+}
+
+/* 진행률 게이지바 */
+.participateBox {
+  width: 90%;
+  text-align: center;
+}
+.progressBarContainer {
   width: 100%;
-  transition: height 1s ease, padding 0.3s ease;
+  background-color: #e0e0e0;
+  border-radius: 8px;
   overflow: hidden;
 }
+.progressBar {
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 8px 0 0 8px;
+  transition: width 0.4s ease-in-out;
+}
+.progressText {
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+}
 
-.optionalbox {
+/* 하단 애니메이션 박스 */
+.descriptionBox {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1px;
+  width: 95%;
+  max-height: 44px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.description {
+  font-style: italic;
+  color: #555; /* 글자 색상 */
+  border-left: 4px solid #edafb8; /* 왼쪽에 강조선 추가 */
+  padding-left: 8px; /* 선과 텍스트 간격 */
+}
+/* 메뉴 박스 */
+.menuBox {
+  width: 85%;
+  border: 1px solid #e0e0e0; /* 경계선 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  overflow: hidden;
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+.menuList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.menuItem {
+  display: flex;
   justify-content: space-between;
-  width: 95%;
-  height: 45px;
-  background-color: #fff;
-  border-radius: 3px;
-  border: 0.5px solid #aaa;
-  padding: 0 5px;
-  font-size: 0.8em;
-}
-.paybox {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  width: 90%;
-  margin: 0px 0;
-  height: 24px;
-  color: rgba(245, 245, 245, 1);
-  background-color: rgba(0, 123, 255, 1);
-  border-radius: 5px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0; /* 아이템 사이 경계선 */
+}
+.menuItem:last-child {
+  border-bottom: none; /* 마지막 아이템 경계선 제거 */
+}
+.menuName {
+  font-weight: bold;
+}
+.originalPrice2 {
+  color: #757575;
+  text-decoration: line-through;
+  margin-right: 8px;
+}
+.discountPrice2 {
+  color: #03a9f4; /* 할인 가격 색상 */
+  font-weight: bold;
+}
+.details {
+  margin-bottom: 12px;
+  font-size: 0.9em; /* 상세 정보 폰트 크기 */
+}
+.actionButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around; /* 버튼 사이에 공간 동일하게 */
+  text-align: center;
+}
+.payButton,
+.mapButton {
+  width: 45%;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px; /* 버튼 모서리 둥글게 */
+  cursor: pointer;
+  transition: background-color 0.3s; /* 배경색 변경 효과 */
+}
+.payButton {
+  background-color: #3160d5; /* 결제 버튼 색상 */
+  color: white;
+}
+.payButton:hover {
+  background-color: #193d9a; /* 결제 버튼 호버 색상 */
+}
+.mapButton {
+  background-color: #e8e8e8; /* 지도 버튼 색상 */
+  color: #333;
+}
+.mapButton:hover {
+  background-color: #acacac; /* 지도 버튼 호버 색상 */
 }
 
-.optionalbox p {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1em;
-  font-weight: 600;
-  color: rgba(105, 105, 105, 1);
-  height: 90%;
-  width: 40px;
-  border-radius: 3px;
-  background-color: #b0c4b1;
-}
-
-.foodChoice {
-  display: flex;
-  flex-direction: row;
-  width: 95%;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.foodChoice p:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8em;
-  width: 160px;
-  height: 30px;
-  border-radius: 55px;
-  border: 1px solid rgb(40, 40, 40);
-  background-color: #fff;
-}
-
-.foodmount {
+/* 애니메이션 박스 매장/포장 */
+.details {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  font-size: 0.8em;
-}
-.foodmount p {
-  font-size: 1.1em;
+  align-items: center;
+  width: 100%;
 }
 
-.checkboxLarge {
-  width: 18px; /* 너비 조절 */
-  height: 18px; /* 높이 조절 */
-  cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
+.orderTypeContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.orderTypeBox {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  width: 38%;
+  padding: 1px 5px;
+  /* min-width: 140px; */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.orderTypeIcon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.orderTypeInfo {
+  width: 100%;
+}
+.orderTypeInfo p {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+.orderTypeProgressContainer {
+  background-color: #ddd;
+  border-radius: 8px;
+  width: 100%;
+  height: 10px;
+  margin: 5px 0;
+}
+.orderTypeProgressBar {
+  height: 100%;
+  background-color: #3160d5;
+  border-radius: 8px;
+  transition: width 0.4s ease;
 }
