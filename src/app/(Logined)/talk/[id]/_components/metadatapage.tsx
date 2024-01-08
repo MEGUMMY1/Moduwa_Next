@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "./_components/chat.module.css";
+import styles from "./chat.module.css";
 import { useRouter } from "next/navigation";
 import { IoArrowBackOutline } from "react-icons/io5";
 import chatData from "../../../../../../public/chat.json";
