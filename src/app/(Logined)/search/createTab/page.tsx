@@ -3,7 +3,6 @@
 "use client";
 import React, { ChangeEventHandler, useState } from "react";
 import styles from "./_components/page.module.css";
-import prisma from "@/app/lib/prisma";
 import { useRouter } from "next/navigation";
 
 const CreateTab = () => {
@@ -83,7 +82,7 @@ const CreateTab = () => {
 
         try {
           const body = { name, password, info, hashtags, isPrivate, minAge, maxAge, capacity }
-          await fetch(`/api/room`, {
+          await fetch(`/api/chatRoom`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),

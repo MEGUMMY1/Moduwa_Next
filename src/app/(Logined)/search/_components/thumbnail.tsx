@@ -8,19 +8,19 @@ import Link from 'next/link'
 
 interface Room {
     id: number,
-    chatRoomImage: string,
-    chatRoomName: string,
-    chatRoomIntro: string,
-    tags: string[],
+    // image: string,
+    name: string | null,
+    info: string | null,
+    hashtags: string[],
     isPrivate: boolean,
     capacity: number,
-    currentMembers: number,
-    rules: string[],
-    gender: string,
-    keyfood: string[],
+    // current: number,
+    // rules: string[],
+    genderRestriction: string | null,
+    // keyfood: string[],
     minAge: number,
     maxAge: number,
-    question: string,
+    // question: string,
 }
 
 interface RoomProps {
@@ -40,7 +40,7 @@ const ThumNail: React.FC<RoomProps> = ({ room }) => {
     }
 
     const renderGenderText = () => {
-        switch (room.gender) {
+        switch (room.genderRestriction) {
             case "all":
                 return <span>없음</span>;
             case "male":
@@ -84,23 +84,23 @@ const ThumNail: React.FC<RoomProps> = ({ room }) => {
                                 src="/하사웨이.png"
                                 width={30}
                                 height={30}
-                                alt={room.chatRoomName}
+                                alt={"하사웨이"}
                                 className={styles.ChatRoomImage}
                             />
                         </div>
 
                         <div className={styles.ProfileText}>
                             <div className={styles.ChatRoomName}>
-                                {room.chatRoomName}
+                                {room.name}
                             </div>
                             <div className={styles.ChatRoomIntro}>
-                                {room.chatRoomIntro}
+                                {room.name}
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.HashTagArea}>
-                        {room.tags}
+                        {room.hashtags}
                     </div>
                 </div>
 
@@ -115,17 +115,17 @@ const ThumNail: React.FC<RoomProps> = ({ room }) => {
                     </div>
 
                     <div className={styles.Member}>
-                        {room.currentMembers} / {room.capacity}
+                        3 / {room.capacity}
                     </div>
                 </div>
             </div>
 
             <div className={styles.animebox} style={{ height: boxHeight }}>
                 <div className={styles.rules}>
-                    {/* 추후 map이 필요 없음. 한 코멘트 안에 다 적게 할 것. */}
+                    {/* 추후 map이 필요 없음. 한 코멘트 안에 다 적게 할 것.
                     {room.rules.map((rule) => (
                         <p key={rule}>- {rule}</p>
-                    ))}
+                    ))} */}
                 </div>
 
                 <div className={styles.requirement}>
@@ -138,15 +138,15 @@ const ThumNail: React.FC<RoomProps> = ({ room }) => {
                     </div>
 
                     <div>
-                        {room.keyfood.map((food) => (
+                        {/* {room.keyfood.map((food) => (
                             <span key={food}>{food} </span>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
 
-                {(room.capacity > room.currentMembers) && (!room.isPrivate) && (isAge) ? (
+                {(room.capacity > 3) && (!room.isPrivate) && (isAge) ? (
                     <div className={styles.joinButton}>
-                        <Link href="/search/joinQuestion">
+                        <Link href={`/search/joinQuestion/${room.id}`}>
                             참가 하기
                         </Link>
                     </div>
