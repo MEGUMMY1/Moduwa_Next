@@ -2,6 +2,12 @@
 // app/(Logined)/home/Post/[postId]/page.tsx
 "use client";
 import React, { useEffect, useState } from "react";
+import styles from "../../_component/postid.module.css";
+import {
+  StoreType,
+  MenuType,
+  MenuItemType,
+} from "@/app/(Logined)/_components/TYPE_post";
 
 interface PageProps {
   params: {
@@ -10,7 +16,10 @@ interface PageProps {
 }
 interface Post {
   id: number;
+  store: StoreType;
   description: string;
+  eventDate: Date;
+  deadline: Date;
   // Include other properties that your post may have
 }
 
@@ -28,9 +37,9 @@ export default function Page({ params }: PageProps) {
     return <div>Loading...</div>;
   }
   return (
-    <div>
+    <article className={styles.pageContainer}>
       <h1>Welcome to post {post.id}</h1>
       <p>Description: {post.description}</p>
-    </div>
+    </article>
   );
 }

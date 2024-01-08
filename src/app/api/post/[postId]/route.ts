@@ -28,7 +28,6 @@ export async function GET(
   // ************** 'await'를 씀으로써 데이터가 잘 불러와졌다.. ************ //
   try {
     const postContent = await getPostdata(postId);
-    console.log(postContent, "zzzzzzzzz");
 
     if (postContent === null) {
       return NextResponse.json(
