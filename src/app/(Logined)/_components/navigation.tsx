@@ -34,7 +34,7 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link href="./search">
+          <Link href="/search">
             <div className={styles.linkItem}>
               {segment === "/search" ? (
                 <>
