@@ -26,9 +26,8 @@ const imageStyle = {
 
 const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
   const { data: session } = useSession();
-
   return (
-    <>      
+    <>
       {session ? (
         <div className={styles.profile_item}>
           <div className={styles.account_change_div}>
@@ -47,13 +46,13 @@ const ProfileComponent: React.FC<{ profile: Profile }> = ({ profile }) => {
               border: "1.5px solid #aaa",
             }}
             //layout="intrinsic" // 또는 'fixed', 'intrinsic' 등에 따라 설정
-          />                  
+          />
         </div>
       ) : (
         <div></div>
       )}
       {/* <p className={styles.profile_name}>{profile.name}</p>  */}
-      <SignInBtn />      
+      <SignInBtn />
     </>
   );
 };

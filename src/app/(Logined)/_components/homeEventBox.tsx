@@ -2,46 +2,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./homeEventBox.module.css";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { FaLocationDot } from "react-icons/fa6";
 import { GiMeal } from "react-icons/gi";
 import { GiBeachBag } from "react-icons/gi";
-interface MenuType {
-  name: string;
-  imageUrl: string | null;
-  price: number;
-}
-
-interface MenuItemType {
-  menu: MenuType;
-  discountPrice: number | null; // Allow discountPrice to be null
-}
-
-interface StoreType {
-  name: string;
-  location: string;
-  imageUrl: string | null;
-}
-interface PostType {
-  id: number;
-  store: StoreType;
-  menuItems: MenuItemType[];
-  description: string | null;
-  eventDate: Date;
-  deadline: Date;
-  createdAt: Date;
-  minimumAmount: number | null;
-  diningAvailable: boolean;
-  diningMenus: string[];
-  diningTime: string | null;
-  diningMaxPeople: number | null;
-  seatArrangeExcuse: boolean;
-  takeawayAvailable: boolean;
-  takeawayMenus: string[];
-  takeawayTime: string | null;
-  takeawayMaxPeople: number | null;
-  paymentCount: number; // Add this field to track the number of payments
-}
+import { PostType } from "./TYPE_post";
 
 const imageStyle = {
   margin: "5px 10px 0px 5px",
@@ -273,9 +239,9 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
         </div>
 
         <div className={styles.actionButtons}>
-          <a href={`/home/${post.id}`} className={styles.payButton}>
+          <Link href={`/home/Post/${post.id}`} className={styles.payButton}>
             결제
-          </a>
+          </Link>
           <button
             className={styles.mapButton}
             onClick={() => {
