@@ -1,10 +1,16 @@
 import JoinModal from '@/app/(Logined)/search/_components/joinModal';
 
-export default function Page() {
+export default async function Page({ params }: { params: { id: number } }) {
+    const id = Number(
+        Array.isArray(params?.id)
+          ? params?.id[0]
+          : params?.id,
+    )
+
     return (
         <>
-            내가 원본
-            <JoinModal />
+            인터셉팅..!
+            <JoinModal id={id}/>
         </>
     )
 }

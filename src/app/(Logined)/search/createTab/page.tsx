@@ -21,7 +21,7 @@ const CreateTab = () => {
     const [checkPrivate, setCheckPrivate] = useState(false);
     const [isPrivate, setIsPrivate] = useState(false);
     const [capacity, setCapacity] = useState(10);
-    const [genderRestriction, setGenderRestriction] = useState('');
+    const [genderRestriction, setGenderRestriction] = useState('all');
     const [minAge, setMinAge] = useState(0);
     const [maxAge, setMaxAge] = useState(0);
     
@@ -67,8 +67,32 @@ const CreateTab = () => {
         setCapacity(prev => (prev > 0 ? prev - 1 : 0));
     }
 
+    const handleGenderSelect = (gender: string) => {
+        setGenderRestriction(gender);
+    };
+
+    const handleMinAgeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        let inputValue = e.target.value;
+
+        // 문자열에서 선행하는 '0'을 제거합니다.
+        inputValue = inputValue.replace(/^0+/, '');
+
+        // 숫자로 변환하고 상태를 업데이트합니다.
+        setMinAge(inputValue ? Number(inputValue) : 0);
+    };
+
+    const handleMaxAgeChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        let inputValue = e.target.value;
+
+        // 문자열에서 선행하는 '0'을 제거합니다.
+        inputValue = inputValue.replace(/^0+/, '');
+
+        // 숫자로 변환하고 상태를 업데이트합니다.
+        setMaxAge(inputValue ? Number(inputValue) : 0);
+    };
+
     const toggleExpansion = () => {
-        setBoxHeight(isExpanded ? "0px" : "90px");
+        setBoxHeight(isExpanded ? "0px" : "120px");
         setIsExpanded(!isExpanded);
     }
 
@@ -97,17 +121,18 @@ const CreateTab = () => {
     return (
         <div className={styles.Container}>
             <div className={styles.TopBar}>
+                <a className={styles.back} href="/search">
+                    뒤로
+                </a>
                 <p>채팅방 만들기</p>
                 
                 <div className={styles.registerButton}>
                     <form onSubmit={submitData}>
                         <input
                             type="submit"
-                            value="Create"
+                            value="완료"
+                            className={styles.createButton}
                         />
-                        <a className={styles.back} href="/">
-                            or Cancel
-                        </a>
                     </form>
                 </div>
             </div>
@@ -134,7 +159,7 @@ const CreateTab = () => {
                     </div>
                 </div>
 
-                <div className={styles.infoInputBox}>
+                <div className={styles.infoInputBox}> 
                     <input type="text" value={info} onChange={handleinfoChange} placeholder="채팅방 소개 입력"/>
                 </div>
 
@@ -191,15 +216,38 @@ const CreateTab = () => {
                             <div className={styles.requireElement}>
                                 <span>성별</span>
                                 <div className={styles.genderSelectBlock}>
-                                    <span className={styles.genderSelectBox}>all</span>
-                                    <span className={styles.genderSelectBox}>남성만</span>
-                                    <span className={styles.genderSelectBox}>여성만</span>
+                                    {["all", "남성만", "여성만"].map((gender) => (
+                                        <span
+                                            key={gender}
+                                            className={`${styles.genderSelectBox} ${genderRestriction === gender ? styles.active : ""}`}
+                                            onClick={() => handleGenderSelect(gender)}
+                                        >
+                                            {gender}
+                                        </span>
+                                    ))}
                                 </div>
                             </div>
 
                             <div className={styles.requireAgeElement}>
                                 <div className={styles.requireAgeTextBox}>
-                                    <span>나이</span>
+                                    <span>최소 나이</span>
+                                    <input 
+                                        type="number" 
+                                        value={minAge} 
+                                        onChange={handleMinAgeChange}
+                                        min="0"
+                                        className={styles.inputAge}
+                                    />
+                                </div>
+                                <div className={styles.requireAgeTextBox}>
+                                    <span>최대 나이</span>
+                                    <input 
+                                        type="number" 
+                                        value={maxAge} 
+                                        onChange={handleMaxAgeChange}
+                                        min={minAge}
+                                        className={styles.inputAge}
+                                    />
                                 </div>
                             </div>
                         </div>

@@ -187,6 +187,7 @@
 .requireAgeElement {
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     justify-content: space-between;
     align-items: center;
@@ -195,6 +196,7 @@
     border-radius: 10px;
 
     padding: 5px;
+    padding-top: 10px;padding-bottom: 10px;
  }
 .requriementControlBlock {
     display: flex;
@@ -220,12 +222,33 @@
     padding: 5px;
     font-size: 14px;
 }
+.genderSelectBox {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.genderSelectBox:hover {
+    background-color: lightblue;
+}
+.active {
+    background-color: blue;
+    color: white;
+}
 .requireAgeTextBox {
     display: flex;
     flex-direction: row;
     width: 100%;
+
+    justify-content: space-between;
+}
+.inputAge {
+    width: 50px;
 }
 
 .createButton {
+    border: none;
+    font-size: 16px;
+    resize: none;
+    outline: none;
     cursor: pointer;
+    background-color: white;
 }
