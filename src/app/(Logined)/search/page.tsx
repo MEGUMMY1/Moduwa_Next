@@ -1,42 +1,32 @@
 //app/search/page
 
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import styles from "./_components/page.module.css";
-import prisma from "@/app/lib/prisma";
 import Main from "./_components/main"
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
-async function getChatRoom() {
-  // const { data: session } = useSession();
-  // const userId = session?.user.id;
+export default function Page() {
+  const { data: session } = useSession();
+  const userId = session?.user.id;
 
-  // console.log(userId)
+  const [chatRooms, setChatRooms] = useState([]);
 
-  const userChatRooms = await prisma.chatRoom.findMany({
-    where: {
-      participants: {
-        // some: { kakaoId: userId },
-      },
-    },
-    select: { id: true },
-  });
+  useEffect(() => {
+    fetch(`/api/chatLoad/${userId}`)
+      .then((response) => response.json())
+      .then((data) => setChatRooms(data));
 
-  const userChatRoomIds = userChatRooms.map((chatRoom) => chatRoom.id);
+    console.log("몇번 보이나 보자 이거");
+  }, [userId]);
 
-  const chatRooms = await prisma.chatRoom.findMany({
-    where: { isPrivate: false },
-    include: { }
-  })
-
-  return chatRooms;
-}
-
-export default async function Page() {
-  const chatRooms = await getChatRoom();
+  if (!chatRooms) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.Container}>
-      <Main chatRoom={chatRooms}/>
+      <Main chatRooms={chatRooms}/>
     </div>
   );
 };

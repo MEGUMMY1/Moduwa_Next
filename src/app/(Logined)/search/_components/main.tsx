@@ -28,10 +28,10 @@ interface Room {
 }
 
 interface RoomProps {
-    chatRoom: Room[];
+    chatRooms: Room[];
 }
 
-const Main: React.FC<RoomProps> = ({ chatRoom }) => {
+const Main: React.FC<RoomProps> = ({ chatRooms }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchTermChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -43,13 +43,13 @@ const Main: React.FC<RoomProps> = ({ chatRoom }) => {
     console.log(searchTerm); // 예시: 콘솔에 검색어 출력
   };
 
-  const filteredChatRooms = chatRoom.filter((room) => {
+  const filteredChatRooms = chatRooms.filter((room) => {
     // 검색어가 없을 경우 모든 데이터 반환
     if (!searchTerm) return true;
 
     // 검색어를 포함하는지 확인
     // 예시: 채팅방 이름에서 검색어 포함 여부 확인
-    // return room.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return room.name?.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   return (
@@ -69,7 +69,7 @@ const Main: React.FC<RoomProps> = ({ chatRoom }) => {
       </div>
 
       <div className={styles.ThumbNailArea}>
-        {chatRoom.map((room) => (
+        {filteredChatRooms.map((room) => (
           <ThumNail key={room.id} room={room} />
         ))}
       </div>

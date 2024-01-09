@@ -25,7 +25,7 @@ const JoinModal: React.FC<JoinModalProps> = ({ id }) => {
         // user 데이터를 채팅방 데이터의 참가자 부분에 추가.
         try {
             const body = { id, userId }
-            await fetch(`/api/chatJoin`, {
+            await fetch(`/api/chatRoom`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
