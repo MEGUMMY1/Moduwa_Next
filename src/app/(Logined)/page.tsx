@@ -2,12 +2,14 @@
 
 import React from "react";
 import EventBox from "./_components/homeEventBox";
-import eventData from "../../../public/data.json";
 import prisma from "../lib/prisma";
 
-async function getPosts() {
+//페이지네이션을 통한 자원 최적화
+async function getPosts(page = 1, pageSize = 6) {
   const posts = await prisma.post.findMany({
     where: { published: true },
+    skip: (page - 1) * pageSize, // 건너뛸 포스트 수
+    take: pageSize, // 가져올 포스트 수
     include: {
       store: {
         select: {
@@ -42,7 +44,7 @@ async function getPosts() {
 }
 
 export default async function Page() {
-  const posts = await getPosts();
+  const posts = await getPosts(1, 6);
   //console.log({ posts });
   return (
     <>
