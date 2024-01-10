@@ -2,9 +2,160 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   width: 100%;
   max-width: 480px;
   min-height: 80dvh;
   margin: 0px auto;
+  font-size: 20px;
+
+  background-color: #fcfcfc; /* 배경색을 부드러운 회색으로 설정하여 읽기 쉽게 함 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 상자 그림자를 추가하여 깊이감을 줌 */
+  border-radius: 8px; /* 모서리를 둥글게 처리 */
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 5px 10px;
+  position: relative; /* 상대적 위치 설정 */
+  font-size: 22px;
+  border-bottom: 0.1px solid #aaa;
+}
+
+.header a {
+  position: absolute; /* 절대적 위치 설정 */
+  left: 14px; /* 왼쪽에서부터 10px 떨어진 곳에 위치 */
+  font-weight: 500;
+  top: 5px; /* 상단에서부터 5px 떨어진 곳에 위치 */
+}
+
+/* 가게 이름 / 게시글 설명 */
+.storeName {
+  width: 100%;
+  text-align: center;
+  padding: 3px 10px;
+  border-top: 1px solid #ddd;
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+  font-size: 24px; /* 가게 이름은 조금 더 크게 */
+  color: #333; /* 진한 색상으로 명확성을 높임 */
+  margin: 16px 0; /* 위아래 여백을 추가하여 구분 */
+}
+.description {
+  width: 95%;
+  font-style: italic;
+  color: #555; /* 글자 색상 */
+  border-left: 4px solid #edafb8; /* 왼쪽에 강조선 추가 */
+  padding-left: 8px; /* 선과 텍스트 간격 */
+  background-color: #fffbea; /* 설명 부분의 배경색을 바꾸어 구분 */
+  margin-bottom: 16px; /* 하단 여백 추가 */
+}
+
+/* 매장/포장 선택 버튼 */
+.howToEat {
+  display: flex;
+  width: 95%;
+  margin-top: 12px;
+}
+.customButton2 {
+  border: 0 solid #fff;
+  background-color: #333;
+  color: #fcfcfc;
+  width: 50%;
+  border-radius: 24px 24px 0 0;
+  font-size: 18px;
+}
+.customButton {
+  border: 1px solid #333;
+  border-bottom: 0px;
+  background-color: rgb(250, 250, 250);
+  color: #333;
+  width: 50%;
+  border-radius: 24px 24px 0 0;
+  font-size: 18px;
+}
+
+.menuBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: 0px 10px 0 10px;
+  font-size: 0.9em;
+  border: 1px solid #333;
+  border-top: 0px;
+  background-color: rgb(250, 250, 250);
+}
+.menuBox p {
+  border-left: 2px solid rgb(200, 200, 200); /* 왼쪽에 강조선 추가 */
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 16px 0;
+  padding: 2px 5px;
+  background-color: rgb(240, 240, 240);
+}
+
+.payAmount {
+  font-size: 1.1em;
+  padding: 0 0 8px 0;
+}
+.discountAmount {
+  font-size: 0.8em;
+  color: #f56;
+  padding: 0 0 18px 0;
+}
+
+.paymentAgree {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 95%;
+  padding: 10px 0px;
+  margin: 10px 0;
+  border: 1px solid #333;
+}
+.paymentAgree input {
+  width: 26px;
+  height: 26px;
+  margin: 0 10px;
+}
+.AgreeMessage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 10px;
+}
+.AgreeMessage p {
+  display: flex;
+  width: 100%;
+  font-size: 0.8em;
+  border-bottom: 1px solid #333;
+}
+.howToPay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+}
+.howToPay button {
+  width: 45%;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgb(255, 232, 18);
+  border-radius: 8px;
+  border: 0;
+}
+.Toss {
+  background-color: rgb(15, 152, 248);
+}
+@media (max-width: 380px) {
+  .pageContainer {
+    font-size: 18px;
+  }
+  .storeName {
+    font-size: 18px;
+  }
 }

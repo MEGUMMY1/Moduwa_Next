@@ -1,0 +1,40 @@
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 95%;
+  padding: 10px 10px;
+  border: 1px solid #333;
+}
+
+.menuName {
+  display: block;
+}
+.menuItem div {
+  text-align: right;
+}
+
+.counterControls {
+  display: flex;
+  margin: 0 0 0 12px;
+}
+
+.counterControls button,
+.counterControls span {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.priceBox {
+  margin-left: auto;
+}
+
+.originPrice {
+  color: #666;
+  font-size: 0.8em;
+  margin-right: 3px;
+}

@@ -9,6 +9,31 @@ async function getPostdata(postid: number) {
   try {
     const postData = await prisma.post.findUnique({
       where: { id: postid },
+      include: {
+        store: {
+          select: {
+            name: true,
+            location: true,
+            imageUrl: true,
+          },
+        },
+        menuItems: {
+          include: {
+            menu: {
+              select: {
+                name: true,
+                imageUrl: true,
+                price: true,
+              },
+            },
+          },
+        },
+        _count: {
+          select: {
+            payments: true, // Count the number of payments related to each post
+          },
+        },
+      },
     });
     return postData;
   } catch (error) {
