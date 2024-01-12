@@ -51,7 +51,7 @@ const ChatComponent: React.FC<{ chat: Chat }> = ({ chat }) => {
       </div>
       <div className={styles.chat_item}>
         <div className={styles.chat_item_a}>
-          <img src={chat.image} className={styles.chat_img} />
+          <Image alt="Image" src={chat.image} className={styles.chat_img} />
           <div className={styles.chat_info_div}>
             <p className={styles.chat_name}>{chat.name}</p>
             <p className={styles.chat_info}>
