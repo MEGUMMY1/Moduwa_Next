@@ -5,47 +5,10 @@ import styles from "./chat.module.css";
 import { useRouter } from "next/navigation";
 import { IoArrowBackOutline } from "react-icons/io5";
 import Image from "next/image";
-
-interface ChatRoom {
-  id: number;
-  name: string | null;
-  hashtags: string[];
-  info: string | null;
-  password: string | null;
-  isPrivate: boolean;
-  capacity: number;
-  genderRestriction: string | null;
-  minAge: number;
-  maxAge: number;
-  participants: User[];
-  messages: Message[]; 
-}
-
-interface User {
-  id: number;
-  kakaoId: string | null;
-  createdAt: string;
-  updatedAt: string;
-  profileImage: string | null;
-  name: string | null;
-  ageRange: string | null;
-  gender: string | null;
-  role: string;
-  messages: Message[]; 
-  chatRooms: ChatRoom[];
-}
-
-interface Message {
-  id: number;
-  createdAt: string;
-  content: string | null;
-  senderId: number;
-  chatRoomId: number;
-  chatRoom: ChatRoom;
-  sender: User;
-}
+import { ChatRoom, User, Message } from '../../_components/TYPE_talk';
 
 const ChatComponent: React.FC<{ message: Message }> = ({ message }) => {
+  
   return (
     <>
       <div className={styles.sender_div}>
@@ -75,7 +38,12 @@ const ChatComponent: React.FC<{ message: Message }> = ({ message }) => {
 
 const EventBox: React.FC<{ chatRoom: ChatRoom }> = ({ chatRoom }) => {
     const router = useRouter();
-    
+
+    // 현재 채팅방의 메시지만 필터링
+    const filteredMessages = chatRoom.messages?.filter(
+      (message) => message.chatRoomId === chatRoom.id
+    ) ?? [];
+
     return (
       <>
         <div className={styles.chat_container}>
@@ -87,13 +55,13 @@ const EventBox: React.FC<{ chatRoom: ChatRoom }> = ({ chatRoom }) => {
             <p className={styles.chat_room_curr}>({chatRoom.capacity})</p>
           </div>
           <div className={styles.chat_body}>
-          {chatRoom.messages && chatRoom.messages.length > 0 ? (
-            chatRoom.messages.map((message) => (
-              <ChatComponent key={message.id} message={message} />
-            ))
-          ) : (
-            <p>No messages available</p>
-          )}
+            {filteredMessages && filteredMessages.length > 0 ? (
+              filteredMessages.map((message) => (
+                <ChatComponent key={message.id} message={message} />
+              ))
+            ) : (
+              <p>No messages available</p>
+            )}
           </div>
           <div className={styles.chat_send_container}></div>
         </div>

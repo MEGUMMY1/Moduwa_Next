@@ -1,0 +1,91 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 400px;
+
+    margin-bottom: 10px;
+    align-items: center;
+
+    padding: 5px;
+}
+
+.TopBar {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    max-width: 400px;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.SearchBar {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.SearchBar input {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+}
+
+.button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+.my-custom-button {
+    background-color: #4CAF50; /* 녹색 배경 */
+    color: white;             /* 흰색 텍스트 */
+    padding: 15px 32px;       /* 패딩 */
+    text-align: center;       /* 텍스트 중앙 정렬 */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s; /* 마우스 오버 효과를 위한 전환 시간 */
+    cursor: pointer;          /* 포인터 커서 */
+  }
+  
+  .my-custom-button:hover {
+    background-color: white;  /* 마우스 오버 시 배경을 흰색으로 */
+    color: black;             /* 마우스 오버 시 텍스트를 검은색으로 */
+  }
+
+.SearchButton {
+    width: 24px;
+    height: 24px;
+}
+
+.addChatButton {
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+}
+
+.ThumbNailArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 400px;
+
+    margin: 5px 0;
+}

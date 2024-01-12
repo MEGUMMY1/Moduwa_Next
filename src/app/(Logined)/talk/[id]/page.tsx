@@ -1,28 +1,33 @@
-// app\(Logined)\talk\[id]\page.tsx
-
-import React from 'react';
+// app\api\talk\[id]\page.tsx
+"use client";
+import React, { useEffect, useState } from 'react';
 import EventBox from './_components/chatEventBox';
-import prisma from '@/app/lib/prisma';
+import { ChatRoom, User, Message } from '../_components/TYPE_talk';
 
-const fetchRoom = async (id: number) => {
-  const params = Number(id);
+export default function Page({ params }: { params: { id: number } }) {
+  const [chatRoom, setChatRoom] = useState<ChatRoom | null>(null);
+  const id = params.id;
   
-  const chatRoom = await prisma.chatRoom.findUnique({
-    where: {
-      id: params
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/talk/chatRoom/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setChatRoom(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching ChatRoom:", error);
+        });
     }
-  });
+  }, [id]);
 
-  return chatRoom;
-}
+  if (!chatRoom) {
+    return <p>Loading...</p>;
+  }
 
-export default async function Page({ params }: { params: { id: number } }) {
-  const chatRoom = await fetchRoom(params.id);
-
-  return(
+  return (
     <>
-      <EventBox chatRoom={chatRoom}/>
+      <EventBox chatRoom={chatRoom} />
     </>
-  )
-  
+  );
 }
