@@ -4,6 +4,7 @@
 import React, { ChangeEventHandler, useState } from "react";
 import styles from "./_components/page.module.css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const CreateTab = () => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -139,7 +140,7 @@ const CreateTab = () => {
             
             <div className={styles.contentContainer}>
                 <div className={styles.imageContainer}>
-                    <img src="/하사웨이.png" alt="Background" />
+                    <Image src="/하사웨이.png" alt="Background" />
                     <button className={styles.imageSettingButton}>이미지 설정</button>
                 </div>
 

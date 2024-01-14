@@ -1,47 +1,43 @@
-import React from "react";
-import chatRoomsData from "../../../../public/chatRooms.json";
-import styles from "./_components/talk.module.css";
-import Link from "next/link";
-import Image from "next/image";
+// app\(Logined)\talk\page.tsx
+"use client";
+import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { ChatRoom, User, Message } from './_components/TYPE_talk';
+import styles from './_components/talk.module.css';
+import EventBox from "./_components/talkEventBox";
 
-interface Room {
-  id: number;
-  image: string;
-  name: string;
-  info: string;
-  current: number;
-  capacity: number;
-}
+export default function Page() {
+  const { data: session } = useSession();
+  const userId = String(session?.user.id);
 
-export default async function Page() {
+  const [chatRooms, setChatRooms] = useState<ChatRoom[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (userId) {
+      setLoading(true); 
+      fetch(`/api/talk/${userId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setChatRooms(data); 
+          setLoading(false); 
+        })
+        .catch((error) => {
+          console.error("Error fetching chat rooms:", error);
+          setLoading(false); 
+        });
+    }
+  }, [userId]);
+
+  if (loading) {
+    return <div className={styles.talk_message}>
+              <p>Loading...</p>
+           </div>;
+  }
+
   return (
-    <>
-      <div className={styles.talklist_container}>
-        <div className={styles.talkroom_div}>
-          {chatRoomsData.map((room: Room) => (
-            <Link href={`/talk/${room.id}`} key={room.id}>
-              <div className={styles.talkroom}>
-                <Image
-                  src={"/image/세츠나2.png"}
-                  width={60} // 예시 값, 필요에 따라 조정
-                  height={60} // 예시 값, 필요에 따라 조정
-                  alt={room.name}
-                  className={styles.talkroom_img}
-                />
-                <div className={styles.talkroom_data_a}>
-                  <div className={styles.talkroom_data_b}>
-                    <p className={styles.roomname}>{room.name}</p>
-                    <p className={styles.roomcapa}>
-                      {room.current}/{room.capacity}
-                    </p>
-                  </div>
-                  <p className={styles.roominfo}>{room.info}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </>
+    <div>
+      <EventBox chatRooms={chatRooms}/>
+    </div>
   );
-}
+};

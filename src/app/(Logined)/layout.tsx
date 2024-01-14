@@ -16,7 +16,7 @@ const LoginedLayout = ({ children }: LayoutProps) => {
       </div>
       <div className={styles.ColumnlayoutContainer}>
         <Header />
-        <main className={styles.content}>{children}</main>
+          <main className={styles.content}>{children}</main>  
       </div>
     </div>
   );
