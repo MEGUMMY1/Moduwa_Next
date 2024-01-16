@@ -22,6 +22,7 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
     setBoxHeight(isExpanded ? "0px" : "340px"); // adjust height based on isExpanded
     setIsExpanded(!isExpanded);
   };
+  const eventDate = new Date(post.eventDate);
   // 타이머 상태를 위한 useState
   const [timeLeft, setTimeLeft] = useState("");
   useEffect(() => {
@@ -98,8 +99,8 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
             }}
           >
             <span className={`${styles.timeBox} ${styles.dateBox}`}>
-              {post.eventDate.toLocaleDateString()}{" "}
-              {post.eventDate.toLocaleDateString("ko-KR", {
+              {eventDate.toLocaleDateString()}{" "}
+              {eventDate.toLocaleDateString("ko-KR", {
                 weekday: "short",
               })}
             </span>

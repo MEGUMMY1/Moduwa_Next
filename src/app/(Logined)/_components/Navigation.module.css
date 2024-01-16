@@ -50,7 +50,7 @@
     transition: background-color 0.3s ease, font-weight 0.5s ease; /* 전환 효과 적용 */
   }
   .linkItem:hover {
-    background-color: rgb(250, 250, 250); /* 마우스 오버 시 배경색 변경 */
+    background-color: rgb(248, 248, 248); /* 마우스 오버 시 배경색 변경 */
     font-weight: 500;
   }
   /* 링크 내부의 텍스트 */
