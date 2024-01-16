@@ -1,0 +1,39 @@
+.eventSorter {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  background-color: rgb(100, 100, 100);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownButton {
+  width: 100px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdownItem {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.dropdownItem:hover {
+  background-color: #f0f0f0;
+}
