@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link"; // Link import
 import { usePathname } from "next/navigation";
-import styles from "./navigation.module.css";
+import styles from "./Navigation.module.css";
 //Icon Imports
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { IoSearchCircle, IoSearchCircleOutline } from "react-icons/io5";

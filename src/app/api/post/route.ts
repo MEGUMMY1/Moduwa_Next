@@ -1,6 +1,5 @@
 // app/api/post/route.ts
 import prisma from "@/app/lib/prisma";
-
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -13,7 +12,7 @@ async function getPostdata(
   let orderBy;
   switch (sortOption) {
     case "최신순":
-      orderBy = { id: "asc" };
+      orderBy = { createdAt: "desc" };
       break;
     case "날짜순":
       orderBy = { eventDate: "asc" };
@@ -22,7 +21,7 @@ async function getPostdata(
       orderBy = { deadline: "asc" };
       break;
     default:
-      orderBy = { id: "asc" };
+      orderBy = { createdAt: "asc" };
     // 기타 정렬 옵션에 따른 케이스 추가
   }
   const cursorOptions = cursor
@@ -30,8 +29,8 @@ async function getPostdata(
         cursor: { id: cursor },
         skip: 1, // Skip the cursor item itself
       }
-    : {};
-
+    : {}; // Provide a default cursor if cursor is undefined
+  console.log(orderBy);
   try {
     const posts = await prisma.post.findMany({
       where: { published: true },
