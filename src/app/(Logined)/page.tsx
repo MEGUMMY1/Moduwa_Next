@@ -1,4 +1,4 @@
-// 예시: src/app/(Logined)/page.tsx
+//  src/app/(Logined)/page.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import EventSorter from "./_components/homeEvent_Sorter";

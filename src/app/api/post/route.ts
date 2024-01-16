@@ -1,5 +1,6 @@
 // app/api/post/route.ts
 import prisma from "@/app/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -12,24 +13,28 @@ async function getPostdata(
   let orderBy;
   switch (sortOption) {
     case "최신순":
-      orderBy = { createdAt: "desc" };
+      orderBy = { createdAt: "desc" } as Prisma.PostOrderByWithRelationInput;
       break;
     case "날짜순":
-      orderBy = { eventDate: "asc" };
+      orderBy = { eventDate: "asc" } as Prisma.PostOrderByWithRelationInput;
       break;
     case "마감순":
-      orderBy = { deadline: "asc" };
+      orderBy = { deadline: "asc" } as Prisma.PostOrderByWithRelationInput;
       break;
     default:
-      orderBy = { createdAt: "asc" };
-    // 기타 정렬 옵션에 따른 케이스 추가
+      orderBy = { createdAt: "asc" } as Prisma.PostOrderByWithRelationInput;
   }
-  const cursorOptions = cursor
-    ? {
-        cursor: { id: cursor },
-        skip: 1, // Skip the cursor item itself
-      }
-    : {}; // Provide a default cursor if cursor is undefined
+
+  // 나머지 코드는 그대로 유지
+
+  let cursorOptions = {};
+  //이전에는 cursor에 타입지정을 했었는데,, 사실 아직 잘 모르겠다..
+  if (!isNaN(cursor)) {
+    cursorOptions = {
+      cursor: { id: cursor },
+      skip: 1, // Skip the cursor item itself
+    };
+  }
   console.log(orderBy);
   try {
     const posts = await prisma.post.findMany({
