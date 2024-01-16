@@ -13,7 +13,7 @@ async function getPostdata(
   let orderBy;
   switch (sortOption) {
     case "최신순":
-      orderBy = { createdAt: "desc" } as Prisma.PostOrderByWithRelationInput;
+      orderBy = { id: "asc" } as Prisma.PostOrderByWithRelationInput;
       break;
     case "날짜순":
       orderBy = { eventDate: "asc" } as Prisma.PostOrderByWithRelationInput;
@@ -25,17 +25,29 @@ async function getPostdata(
       orderBy = { createdAt: "asc" } as Prisma.PostOrderByWithRelationInput;
   }
 
-  // 나머지 코드는 그대로 유지
-
+  // const cursorOptions = cursor
+  //   ? {
+  //       cursor: { id: cursor },
+  //       skip: 1, // Skip the cursor item itself
+  //     }
+  //   : {}; // Provide a default cursor if cursor is undefined
+  console.log(cursor);
+  //이 코드에서, 왜 if문 빼면 안돼냐 ㅋㅋㅋ
   let cursorOptions = {};
-  //이전에는 cursor에 타입지정을 했었는데,, 사실 아직 잘 모르겠다..
-  if (!isNaN(cursor)) {
+  if (isNaN(cursor)) {
+    // Load initial data
+    cursorOptions = {
+      cursor: { id: cursor },
+      skip: 1, // Skip the cursor item itself
+    };
+  } else if (cursor) {
+    // Load subsequent pages
     cursorOptions = {
       cursor: { id: cursor },
       skip: 1, // Skip the cursor item itself
     };
   }
-  console.log(orderBy);
+
   try {
     const posts = await prisma.post.findMany({
       where: { published: true },

@@ -25,7 +25,7 @@ export default function Page() {
 
     setLoading(true); // 로딩중일 때에는 새로운 요청을 만들지 않음
 
-    fetch(`/api/post?cursor=${cursor}&sort=${sortOption}`)
+    fetch(`/api/post?cursor=${cursor.toString()}&sort=${sortOption}`)
       .then((response) => response.json())
       .then((data) => {
         setLoading(false);
