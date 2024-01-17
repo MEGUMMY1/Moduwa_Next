@@ -60,6 +60,7 @@ async function getPostdata(
             name: true,
             location: true,
             imageUrl: true,
+            storeId: true,
           },
         },
         menuItems: {
