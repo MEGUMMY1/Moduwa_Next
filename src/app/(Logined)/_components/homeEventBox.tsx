@@ -243,14 +243,12 @@ const EventBox: React.FC<{ post: PostType }> = ({ post }) => {
           <Link href={`/home/Post/${post.id}`} className={styles.payButton}>
             결제
           </Link>
-          <button
+          <Link
+            href={`/home/${post.store.storeId}`}
             className={styles.mapButton}
-            onClick={() => {
-              /* Open map logic */
-            }}
           >
             <FaLocationDot /> 지도 보기
-          </button>
+          </Link>
         </div>
       </footer>
     </article>

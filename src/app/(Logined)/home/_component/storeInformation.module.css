@@ -1,0 +1,6 @@
+.content {
+  display: flex; /* 가로 방향 유지를 위해 flex 설정 */
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}

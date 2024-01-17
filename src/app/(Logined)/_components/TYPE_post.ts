@@ -13,6 +13,7 @@ export interface StoreType {
   name: string;
   location: string;
   imageUrl: string | null;
+  storeId: string;
 }
 export interface PostType {
   id: number;

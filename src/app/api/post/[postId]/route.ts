@@ -35,6 +35,7 @@ async function getPostdata(postid: number) {
         },
       },
     });
+    console.log(postData); // Log the data
     return postData;
   } catch (error) {
     console.error("데이터 페칭하다가 오류났어요", error);
